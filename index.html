@@ -140,6 +140,7 @@
   </main>
   <script>
     var input = document.querySelector('.tweet-input');
+    var inputLine = input.closest('.line');
     var main = document.querySelector('main');
     var notes = JSON.parse(localStorage.getItem('notes') || '[]');
 
@@ -149,7 +150,8 @@
       var div = document.createElement('div');
       div.className = 'line note-line';
       div.innerHTML = '<span class="ln">' + lineNum + '</span><span class="lc txt">' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
-      main.appendChild(div);
+      main.insertBefore(div, inputLine);
+      inputLine.querySelector('.ln').textContent = lineNum + 1;
     }
 
     notes.forEach(function(n) { addNoteLine(n); });
