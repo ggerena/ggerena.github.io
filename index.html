@@ -54,9 +54,9 @@
   <main>
     <div class="line"><span class="ln">1</span><span class="lc h1"><span class="sym"># </span>Gery Gerena</span></div>
     <div class="line"><span class="ln">2</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">3</span><span class="lc dim">Human | AI Orchestrator Junior</span></div>
+    <div class="line"><span class="ln">3</span><span class="lc dim" data-i18n="subtitle">Human | AI Orchestrator Junior</span></div>
     <div class="line"><span class="ln">4</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">5</span><span class="lc h2"><span class="sym">## </span>Socials</span></div>
+    <div class="line"><span class="ln">5</span><span class="lc h2"><span class="sym">## </span><span data-i18n="socials">Socials</span></span></div>
     <div class="line"><span class="ln">6</span><span class="lc empty"></span></div>
     <div class="line"><span class="ln">7</span><span class="lc"><span class="sym">- [</span><a href="https://www.linkedin.com/in/ggerena/" target="_blank">LinkedIn</a><span class="sym">]</span><span class="url">(https://www.linkedin.com/in/ggerena/)</span></span></div>
     <div class="line"><span class="ln">8</span><span class="lc"><span class="sym">- [</span><a href="https://medium.com/@ggerena" target="_blank">Medium</a><span class="sym">]</span><span class="url">(https://medium.com/@ggerena)</span></span></div>
@@ -65,15 +65,44 @@
     <div class="line"><span class="ln">11</span><span class="lc"><span class="sym">- [</span><a href="https://www.instagram.com/gery.gerena" target="_blank">Instagram</a><span class="sym">]</span><span class="url">(https://www.instagram.com/gery.gerena)</span></span></div>
     <div class="line"><span class="ln">12</span><span class="lc"><span class="sym">- [</span><a href="https://facebook.com/ggerena/" target="_blank">Facebook</a><span class="sym">]</span><span class="url">(https://facebook.com/ggerena/)</span></span></div>
     <div class="line"><span class="ln">13</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">14</span><span class="lc h2"><span class="sym">## </span>Toy Projects</span></div>
+    <div class="line"><span class="ln">14</span><span class="lc h2"><span class="sym">## </span><span data-i18n="toy-projects">Toy Projects</span></span></div>
     <div class="line"><span class="ln">15</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">16</span><span class="lc"><span class="sym">- [</span><a href="https://github.com/ggerena/camina-tu-ciudad/releases" target="_blank">camina-tu-ciudad</a><span class="sym">]</span><span class="url">(https://github.com/ggerena/camina-tu-ciudad/releases)</span><span class="dim"> &mdash; Track your walked streets. Fully offline, no server, everything stays on your phone.</span></span></div>
+    <div class="line"><span class="ln">16</span><span class="lc"><span class="sym">- [</span><a href="https://github.com/ggerena/camina-tu-ciudad/releases" target="_blank">camina-tu-ciudad</a><span class="sym">]</span><span class="url">(https://github.com/ggerena/camina-tu-ciudad/releases)</span><span class="dim"> &mdash; <span data-i18n="camina-desc">Track your walked streets. Fully offline, no server, everything stays on your phone.</span></span></span></div>
     <div class="line"><span class="ln">17</span><span class="lc empty"></span></div>
     <div class="line"><span class="ln">18</span><span class="lc txt">---</span></div>
     <div class="line"><span class="ln">19</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">20</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; Built with <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
+    <div class="line"><span class="ln">20</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; <span data-i18n="footer">Built with</span> <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
     <div class="line"><span class="ln">21</span><span class="lc"><input class="tweet-input" type="text" placeholder="write something..." maxlength="280" autofocus><span class="cursor"></span></span></div>
   </main>
+  <script>
+    var lang = navigator.language.startsWith('es') ? 'es' : 'en';
+    var i18n = {
+      es: {
+        subtitle: 'Humano | Orquestador de IA Junior',
+        socials: 'Redes',
+        'toy-projects': 'Proyectos de Juguete',
+        'camina-desc': 'Registra las calles que caminas. Totalmente offline, sin servidor, todo queda en tu teléfono.',
+        footer: 'Hecho con',
+        placeholder: 'escribe algo...'
+      },
+      en: {
+        subtitle: 'Human | AI Orchestrator Junior',
+        socials: 'Socials',
+        'toy-projects': 'Toy Projects',
+        'camina-desc': 'Track your walked streets. Fully offline, no server, everything stays on your phone.',
+        footer: 'Built with',
+        placeholder: 'write something...'
+      }
+    };
+    document.documentElement.lang = lang;
+    document.title = lang === 'es' ? 'Gery Gerena | Humano | Orquestador de IA Junior' : document.title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+    var tweetInput = document.querySelector('.tweet-input');
+    tweetInput.placeholder = i18n[lang].placeholder;
+  </script>
   <script>
     var input = document.querySelector('.tweet-input');
     var inputLine = input.closest('.line');

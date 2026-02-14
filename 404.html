@@ -11,11 +11,32 @@
 <body>
   <div class="file-bar"><span>~/</span>404.md</div>
   <main>
-    <div class="line"><span class="ln">1</span><span class="lc h1"><span class="sym"># </span>404 &mdash; Page not found</span></div>
+    <div class="line"><span class="ln">1</span><span class="lc h1"><span class="sym"># </span><span data-i18n="title-404">404 &mdash; Page not found</span></span></div>
     <div class="line"><span class="ln">2</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">3</span><span class="lc dim">The page you're looking for doesn't exist.</span></div>
+    <div class="line"><span class="ln">3</span><span class="lc dim" data-i18n="not-found-msg">The page you're looking for doesn't exist.</span></div>
     <div class="line"><span class="ln">4</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">5</span><span class="lc"><span class="sym">[</span><a href="/">go back home</a><span class="sym">]</span><span class="url">(/)</span></span></div>
+    <div class="line"><span class="ln">5</span><span class="lc"><span class="sym">[</span><a href="/" data-i18n="go-home">go back home</a><span class="sym">]</span><span class="url">(/)</span></span></div>
   </main>
+  <script>
+    var lang = navigator.language.startsWith('es') ? 'es' : 'en';
+    var i18n = {
+      es: {
+        'title-404': '404 \u2014 P\u00e1gina no encontrada',
+        'not-found-msg': 'La p\u00e1gina que buscas no existe.',
+        'go-home': 'volver al inicio'
+      },
+      en: {
+        'title-404': '404 \u2014 Page not found',
+        'not-found-msg': "The page you're looking for doesn't exist.",
+        'go-home': 'go back home'
+      }
+    };
+    document.documentElement.lang = lang;
+    document.title = lang === 'es' ? '404 | Gery Gerena' : document.title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+  </script>
 </body>
 </html>
