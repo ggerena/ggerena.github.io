@@ -13,4 +13,4 @@ Human | AI Orchestrator Junior
 
 ---
 
-Gery Gerena © 2025 — Built with [Claude Code](https://claude.ai/code)
+Gery Gerena © 2026 — Built with [Claude Code](https://claude.ai/code)
