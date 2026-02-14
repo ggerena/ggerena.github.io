@@ -136,13 +136,29 @@
   </main>
   <script>
     var input = document.querySelector('.tweet-input');
+    var main = document.querySelector('main');
+    var notes = JSON.parse(localStorage.getItem('notes') || '[]');
+
+    function addNoteLine(text) {
+      var count = document.querySelectorAll('.note-line').length;
+      var lineNum = 18 + count;
+      var div = document.createElement('div');
+      div.className = 'line note-line';
+      div.innerHTML = '<span class="ln">' + lineNum + '</span><span class="lc txt">' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+      main.appendChild(div);
+    }
+
+    notes.forEach(function(n) { addNoteLine(n); });
+
     document.addEventListener('click', function(e) {
       if (!e.target.closest('a')) input.focus();
     });
     input.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && input.value.trim()) {
-        var text = input.value.trim() + ' @ggerena';
-        window.open('https://x.com/intent/post?text=' + encodeURIComponent(text), '_blank');
+        var text = input.value.trim();
+        notes.push(text);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        addNoteLine(text);
         input.value = '';
       }
     });
