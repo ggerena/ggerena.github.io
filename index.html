@@ -136,6 +136,9 @@
   </main>
   <script>
     var input = document.querySelector('.tweet-input');
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) input.focus();
+    });
     input.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && input.value.trim()) {
         var text = input.value.trim() + ' @ggerena';
