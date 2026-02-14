@@ -75,6 +75,21 @@
     a:hover {
       text-decoration: underline;
     }
+    .tweet-input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #c9d1d9;
+      font: inherit;
+      line-height: inherit;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      caret-color: #58a6ff;
+    }
+    .tweet-input::placeholder {
+      color: #30363d;
+    }
     .cursor {
       display: inline-block;
       width: 0.6em;
@@ -82,6 +97,9 @@
       background: #58a6ff;
       vertical-align: text-bottom;
       animation: blink 1s step-end infinite;
+    }
+    .tweet-input:focus ~ .cursor {
+      display: none;
     }
     @keyframes blink {
       50% { opacity: 0; }
@@ -114,7 +132,17 @@
     <div class="line"><span class="ln">14</span><span class="lc txt">---</span></div>
     <div class="line"><span class="ln">15</span><span class="lc empty"></span></div>
     <div class="line"><span class="ln">16</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; Built with <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
-    <div class="line"><span class="ln">17</span><span class="lc"><span class="cursor"></span></span></div>
+    <div class="line"><span class="ln">17</span><span class="lc"><input class="tweet-input" type="text" placeholder="write something..." maxlength="280" autofocus><span class="cursor"></span></span></div>
   </main>
+  <script>
+    var input = document.querySelector('.tweet-input');
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && input.value.trim()) {
+        var text = input.value.trim() + ' @ggerena';
+        window.open('https://x.com/intent/post?text=' + encodeURIComponent(text), '_blank');
+        input.value = '';
+      }
+    });
+  </script>
 </body>
 </html>
