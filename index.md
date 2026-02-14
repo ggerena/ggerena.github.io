@@ -2,14 +2,18 @@
 
 Human | AI Orchestrator Junior
 
-## Links
+## Socials
 
-- [Twitter](https://twitter.com/ggerena)
-- [Instagram](https://www.instagram.com/gery.gerena)
 - [LinkedIn](https://www.linkedin.com/in/ggerena/)
-- [Facebook](https://facebook.com/ggerena/)
-- [GitHub](https://github.com/ggerena)
 - [Medium](https://medium.com/@ggerena)
+- [GitHub](https://github.com/ggerena)
+- [X](https://x.com/ggerena)
+- [Instagram](https://www.instagram.com/gery.gerena)
+- [Facebook](https://facebook.com/ggerena/)
+
+## Toy Projects
+
+- [camina-tu-ciudad](https://github.com/ggerena/camina-tu-ciudad/releases) — Track your walked streets. Fully offline, no server, everything stays on your phone.
 
 ---
 

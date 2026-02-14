@@ -129,10 +129,14 @@
     <div class="line"><span class="ln">11</span><span class="lc"><span class="sym">- [</span><a href="https://www.instagram.com/gery.gerena" target="_blank">Instagram</a><span class="sym">]</span><span class="url">(https://www.instagram.com/gery.gerena)</span></span></div>
     <div class="line"><span class="ln">12</span><span class="lc"><span class="sym">- [</span><a href="https://facebook.com/ggerena/" target="_blank">Facebook</a><span class="sym">]</span><span class="url">(https://facebook.com/ggerena/)</span></span></div>
     <div class="line"><span class="ln">13</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">14</span><span class="lc txt">---</span></div>
+    <div class="line"><span class="ln">14</span><span class="lc h2"><span class="sym">## </span>Toy Projects</span></div>
     <div class="line"><span class="ln">15</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">16</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; Built with <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
-    <div class="line"><span class="ln">17</span><span class="lc"><input class="tweet-input" type="text" placeholder="write something..." maxlength="280" autofocus><span class="cursor"></span></span></div>
+    <div class="line"><span class="ln">16</span><span class="lc"><span class="sym">- [</span><a href="https://github.com/ggerena/camina-tu-ciudad/releases" target="_blank">camina-tu-ciudad</a><span class="sym">]</span><span class="url">(https://github.com/ggerena/camina-tu-ciudad/releases)</span><span class="dim"> &mdash; Track your walked streets. Fully offline, no server, everything stays on your phone.</span></span></div>
+    <div class="line"><span class="ln">17</span><span class="lc empty"></span></div>
+    <div class="line"><span class="ln">18</span><span class="lc txt">---</span></div>
+    <div class="line"><span class="ln">19</span><span class="lc empty"></span></div>
+    <div class="line"><span class="ln">20</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; Built with <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
+    <div class="line"><span class="ln">21</span><span class="lc"><input class="tweet-input" type="text" placeholder="write something..." maxlength="280" autofocus><span class="cursor"></span></span></div>
   </main>
   <script>
     var input = document.querySelector('.tweet-input');
@@ -141,7 +145,7 @@
 
     function addNoteLine(text) {
       var count = document.querySelectorAll('.note-line').length;
-      var lineNum = 18 + count;
+      var lineNum = 22 + count;
       var div = document.createElement('div');
       div.className = 'line note-line';
       div.innerHTML = '<span class="ln">' + lineNum + '</span><span class="lc txt">' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
