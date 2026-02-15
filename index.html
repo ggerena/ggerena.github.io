@@ -17,37 +17,6 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230d1117'/><text x='4' y='24' font-family='monospace' font-size='22' fill='%2358a6ff'>%3E_</text></svg>">
   <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","headline":"Gery Gerena","author":{"@type":"Person","name":"Gery Gerena"},"description":"Human | AI Orchestrator Junior","url":"https://ggerena.cl"}</script>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .tweet-input {
-      background: none;
-      border: none;
-      outline: none;
-      color: #c9d1d9;
-      font: inherit;
-      line-height: inherit;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      caret-color: #58a6ff;
-    }
-    .tweet-input::placeholder {
-      color: #30363d;
-    }
-    .cursor {
-      display: inline-block;
-      width: 0.6em;
-      height: 1.1em;
-      background: #58a6ff;
-      vertical-align: text-bottom;
-      animation: blink 1s step-end infinite;
-    }
-    .tweet-input:focus ~ .cursor {
-      display: none;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-  </style>
 </head>
 <body>
   <div class="file-bar"><span>~/</span>README.md</div>
@@ -69,10 +38,14 @@
     <div class="line"><span class="ln">15</span><span class="lc empty"></span></div>
     <div class="line"><span class="ln">16</span><span class="lc"><span class="sym">- [</span><a href="/apk/camina-tu-ciudad.apk">camina-tu-ciudad (WIP)</a><span class="sym">]</span><span class="url">(/apk/camina-tu-ciudad.apk)</span><span class="dim"> &mdash; <span data-i18n="camina-desc">Track your walked streets. Fully offline, no server, everything stays on your phone.</span></span></span></div>
     <div class="line"><span class="ln">17</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">18</span><span class="lc txt">---</span></div>
+    <div class="line"><span class="ln">18</span><span class="lc h2"><span class="sym">## </span><span data-i18n="changelog">Changelog</span></span></div>
     <div class="line"><span class="ln">19</span><span class="lc empty"></span></div>
-    <div class="line"><span class="ln">20</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; <span data-i18n="footer">Built with</span> <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
-    <div class="line"><span class="ln">21</span><span class="lc"><input class="tweet-input" type="text" placeholder="write something..." maxlength="280" autofocus><span class="cursor"></span></span></div>
+    <div class="line"><span class="ln">20</span><span class="lc h3"><span class="sym">### </span>2026-02-14</span></div>
+    <div class="line"><span class="ln">21</span><span class="lc"><span class="sym">- </span><span data-i18n="log-0214" class="txt">Rediseño del sitio y app para caminar</span></span></div>
+    <div class="line"><span class="ln">22</span><span class="lc empty"></span></div>
+    <div class="line"><span class="ln">23</span><span class="lc txt">---</span></div>
+    <div class="line"><span class="ln">24</span><span class="lc empty"></span></div>
+    <div class="line"><span class="ln">25</span><span class="lc dim">Gery Gerena &copy; 2026 &mdash; <span data-i18n="footer">Built with</span> <span class="sym">[</span><a href="https://claude.ai/code" target="_blank">Claude Code</a><span class="sym">]</span><span class="url">(https://claude.ai/code)</span></span></div>
   </main>
   <script>
     var lang = navigator.language.startsWith('es') ? 'es' : 'en';
@@ -82,16 +55,18 @@
         socials: 'Redes',
         'toy-projects': 'Proyectos de Juguete',
         'camina-desc': 'Registra las calles que caminas. Totalmente offline, sin servidor, todo queda en tu teléfono.',
-        footer: 'Hecho con',
-        placeholder: 'escribe algo...'
+        changelog: 'Changelog',
+        'log-0214': 'Rediseño del sitio y app para caminar',
+        footer: 'Hecho con'
       },
       en: {
         subtitle: 'Human | AI Orchestrator Junior',
         socials: 'Socials',
         'toy-projects': 'Toy Projects',
         'camina-desc': 'Track your walked streets. Fully offline, no server, everything stays on your phone.',
-        footer: 'Built with',
-        placeholder: 'write something...'
+        changelog: 'Changelog',
+        'log-0214': 'Site redesign and walking app',
+        footer: 'Built with'
       }
     };
     document.documentElement.lang = lang;
@@ -99,39 +74,6 @@
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
       if (i18n[lang][key]) el.textContent = i18n[lang][key];
-    });
-    var tweetInput = document.querySelector('.tweet-input');
-    tweetInput.placeholder = i18n[lang].placeholder;
-  </script>
-  <script>
-    var input = document.querySelector('.tweet-input');
-    var inputLine = input.closest('.line');
-    var main = document.querySelector('main');
-    var notes = JSON.parse(localStorage.getItem('notes') || '[]');
-
-    function addNoteLine(text) {
-      var count = document.querySelectorAll('.note-line').length;
-      var lineNum = 22 + count;
-      var div = document.createElement('div');
-      div.className = 'line note-line';
-      div.innerHTML = '<span class="ln">' + lineNum + '</span><span class="lc txt">' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
-      main.insertBefore(div, inputLine);
-      inputLine.querySelector('.ln').textContent = lineNum + 1;
-    }
-
-    notes.forEach(function(n) { addNoteLine(n); });
-
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('a')) input.focus();
-    });
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' && input.value.trim()) {
-        var text = input.value.trim();
-        notes.push(text);
-        localStorage.setItem('notes', JSON.stringify(notes));
-        addNoteLine(text);
-        input.value = '';
-      }
     });
   </script>
 </body>
