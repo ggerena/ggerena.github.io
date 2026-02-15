@@ -13,7 +13,7 @@ Human | AI Orchestrator Junior
 
 ## Toy Projects
 
-- [camina-tu-ciudad](https://github.com/ggerena/camina-tu-ciudad/releases) — Track your walked streets. Fully offline, no server, everything stays on your phone.
+- [camina-tu-ciudad](https://github.com/ggerena/camina-tu-ciudad/releases) `WIP` — Track your walked streets. Fully offline, no server, everything stays on your phone.
 
 ---
 
