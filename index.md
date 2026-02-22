@@ -11,10 +11,6 @@ Human | AI Orchestrator Junior
 - [Instagram](https://www.instagram.com/gery.gerena)
 - [Facebook](https://facebook.com/ggerena/)
 
-## Toy Projects
-
-- [camina-tu-ciudad](https://github.com/ggerena/camina-tu-ciudad/releases) `WIP` — Track your walked streets. Fully offline, no server, everything stays on your phone.
-
 ---
 
 Gery Gerena © 2026 — Built with [Claude Code](https://claude.ai/code)
