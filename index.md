@@ -1,6 +1,6 @@
 # Gery Gerena
 
-Human | AI Orchestrator Junior
+Human | AI & Human Orchestrator
 
 ## Socials
 
