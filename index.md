@@ -1,6 +1,6 @@
 # Gery Gerena
 
-Human | AI & Human Orchestrator
+Human | AI-Powered Technical Lead
 
 ## Socials
 
