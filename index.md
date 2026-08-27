@@ -13,4 +13,4 @@ Human | AI-Powered Technical Lead
 
 ---
 
-Gery Gerena © 2026 — Built with [Claude Code](https://claude.ai/code)
+Gery Gerena © 2026 — Built with AI
