@@ -26,3 +26,7 @@ To preview locally, open `index.html` in a browser or use any static file server
 
 - Asset URLs in HTML use root-relative paths (`/assets/...`), so local preview works with any static file server.
 - No external CDN dependencies. Zero JavaScript.
+
+## Publicación del sitio personal desde Codex
+
+Gery confirmó el 2026-09-07 que las reglas personales de respaldo obligatorio mediante PR y autorización adicional de merge no aplican a este sitio personal; corresponden al trabajo con Gear3 o Remora. Un pedido de publicar aquí autoriza subir el cambio verificado directamente a master para GitHub Pages. Comprobar el diff y excluir datos privados antes de publicar. Esta excepción se limita a este repositorio.

@@ -1,0 +1,1380 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Q6b5KfrNHJRavGG/iLps3HqgVLw+tRKSJAFTDgt9agE='; style-src 'sha256-yPKrEma2ga98NSabitV64lkgJQCU+EnvADRwzGCIjAQ='; base-uri 'none'; form-action 'none'"><title>MiSalud · Mi evolución</title><style>:root {
+  color-scheme: light;
+  --ink: #183b35;
+  --muted: #61756d;
+  --green: #174e43;
+  --mint: #d9e9dc;
+  --paper: #f5f5ee;
+  --card: #fffef9;
+  --line: #dce2d8;
+  --accent: #d5e9aa;
+  --radius: 23px;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button,
+summary,
+input,
+select {
+  touch-action: manipulation;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+circle:focus-visible {
+  outline: 3px solid #287cc3;
+  outline-offset: 4px;
+}
+button:disabled {
+  cursor: default;
+}
+button {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(32px, 4.6vw, 49px);
+  line-height: 1.13;
+  letter-spacing: -1.7px;
+  font-weight: 650;
+  margin: 14px 0;
+}
+h1:focus {
+  outline: none;
+}
+h2 {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 650;
+}
+small {
+  font-size: 12px;
+}
+.icon {
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.app-shell {
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 36px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 21px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 21px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+}
+.brand-mark {
+  width: 33px;
+  height: 33px;
+  border-radius: 11px;
+  background: var(--green);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+}
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.privacy .icon {
+  width: 15px;
+  height: 15px;
+}
+.main {
+  padding: 30px 0 118px;
+}
+.view[hidden] {
+  display: none;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.intro {
+  margin-bottom: 24px;
+}
+.subtle {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.period {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.summary-counts {
+  display: flex;
+  gap: 0;
+  margin: 24px 0;
+}
+.summary-counts span {
+  padding: 0 20px;
+  border-left: 1px solid #d4ddd0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.summary-counts span:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.summary-counts strong {
+  font-size: 20px;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--ink);
+  margin-right: 5px;
+}
+.home-layout {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+.hero {
+  padding: 25px 25px 18px;
+  background: var(--green);
+  border-radius: var(--radius);
+  color: #fffef7;
+  box-shadow: 0 12px 26px #174e4310;
+  min-width: 0;
+}
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.hero .eyebrow {
+  color: #c5dccc;
+}
+.hero-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff29;
+  border-radius: 50%;
+}
+.hero h2 {
+  font-size: 23px;
+  font-weight: 500;
+}
+.hero-value {
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 13px 0 8px;
+  font-weight: 550;
+}
+.hero-value span {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #c5dccc;
+  margin-left: 9px;
+}
+.hero-source {
+  font-size: 12px;
+  color: #c5dccc;
+}
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 12px 0 0;
+  overflow: visible;
+}
+.chart line {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart polyline {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.chart .point {
+  fill: var(--card);
+  stroke: var(--green);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.chart .point-hit {
+  fill: transparent;
+  cursor: pointer;
+  stroke: none;
+}
+.chart text {
+  fill: var(--muted);
+  font:
+    13px system-ui,
+    sans-serif;
+}
+.hero .chart line {
+  stroke: #ffffff21;
+}
+.hero .chart polyline {
+  stroke: var(--accent);
+}
+.hero .chart .point {
+  stroke: var(--accent);
+  fill: var(--green);
+}
+.hero .chart text {
+  fill: #d9e9dc;
+}
+.chart-note {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.hero .chart-note {
+  color: #c5dccc;
+}
+.hero-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 13px;
+  border-top: 1px solid #ffffff24;
+}
+.status {
+  font-size: 11px;
+  font-weight: 500;
+  color: #79633e;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  white-space: nowrap;
+}
+.hero .status {
+  color: #dce7c7;
+}
+.hero-link {
+  background: none;
+  color: #fff;
+  border: 0;
+  min-height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+.hero-link .icon {
+  width: 18px;
+  height: 18px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 1px 0 15px;
+}
+.section-heading h2 {
+  font-size: 19px;
+}
+.section-heading p {
+  font-size: 11px;
+  color: var(--muted);
+}
+.metric-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 17px;
+  min-width: 0;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+.metric-card:hover {
+  border-color: #7b9b88;
+  transform: translateY(-2px);
+}
+.metric-card h3 {
+  margin-top: 8px;
+  min-height: 42px;
+  font-size: 15px;
+}
+.metric-card .eyebrow {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.metric-value {
+  font-size: 28px;
+  font-weight: 550;
+  letter-spacing: -0.8px;
+  margin: 12px 0 7px;
+}
+.metric-value small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--muted);
+}
+.metric-meta {
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: auto;
+}
+.metric-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  margin-top: 13px;
+}
+.metric-bottom .icon {
+  width: 16px;
+  height: 16px;
+}
+.metric-bottom .status {
+  font-size: 10px;
+}
+.text-button {
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 600;
+  text-align: left;
+}
+.text-button .icon {
+  width: 19px;
+  height: 19px;
+}
+.home-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 22px;
+}
+.home-footer p {
+  max-width: 450px;
+}
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  margin: 23px 0 18px;
+}
+.tools label {
+  display: block;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tools input,
+.tools select {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 49px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 13px;
+  padding: 10px 12px;
+  margin-top: 7px;
+  font-size: 16px;
+}
+.search-label {
+  display: flex;
+  justify-content: space-between;
+}
+.search-label span:last-child {
+  font-weight: 400;
+  color: var(--muted);
+}
+.segmented {
+  display: flex;
+  max-width: 480px;
+  width: 100%;
+  gap: 3px;
+  padding: 4px;
+  background: #e8eee3;
+  border-radius: 13px;
+  margin-bottom: 21px;
+}
+.segmented button {
+  min-width: 0;
+  flex: 1;
+  padding: 6px 3px;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.segmented [aria-pressed="true"] {
+  background: var(--card);
+  box-shadow: 0 1px 5px #13291a0d;
+  color: var(--ink);
+  font-weight: 600;
+}
+.evolution-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 23px;
+  min-width: 0;
+}
+.evolution-title {
+  margin-top: 6px;
+}
+.evolution-value {
+  font-size: 45px;
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  margin-top: 17px;
+  display: inline-block;
+}
+.unit-label {
+  color: var(--muted);
+  margin-left: 8px;
+  font-size: 14px;
+}
+.evolution-date {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.records-heading {
+  margin: 22px 0 12px;
+  font-size: 17px;
+}
+.record {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  border: 1px solid transparent;
+  border-bottom-color: var(--line);
+  background: transparent;
+  min-height: 71px;
+  padding: 13px 12px;
+}
+.record small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.record strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.record.selected {
+  border: 1px solid #abc7b4;
+  border-radius: 12px;
+  background: #eaf1e7;
+}
+.record-value {
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.detail-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.detail-heading .eyebrow {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+dl {
+  margin: 18px 0 5px;
+}
+dl div {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+dt {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+dd {
+  margin: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.empty {
+  padding: 25px 0;
+  color: var(--muted);
+}
+.empty p {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+.empty span {
+  font-size: 12px;
+}
+.agenda-note {
+  padding: 16px 18px;
+  border: 1px dashed #bbcdb5;
+  border-radius: 15px;
+  margin: 20px 0 26px;
+  background: #edf2e8;
+}
+.agenda-note p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+.example-badge {
+  font-size: 10px;
+  display: inline-block;
+  color: #566f38;
+  background: #e2eacb;
+  border: 1px solid #cbd9b3;
+  border-radius: 7px;
+  padding: 3px 7px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.agenda-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.agenda-section-title {
+  font-size: 18px;
+  margin: 0 0 13px;
+}
+.agenda-section-title.past-title {
+  margin-top: 29px;
+}
+.appointment {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 16px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  margin-bottom: 11px;
+}
+.date-tile {
+  align-self: start;
+  text-align: center;
+  border-radius: 13px;
+  padding: 10px 4px;
+  background: #e7efdd;
+  color: var(--green);
+}
+.date-tile strong {
+  font-size: 26px;
+  line-height: 1;
+  display: block;
+  font-weight: 600;
+}
+.date-tile span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.appointment-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+.appointment h3 {
+  font-size: 15px;
+}
+.appointment p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+.appointment-location {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+}
+.appointment.past .date-tile {
+  background: #eeefe7;
+  color: var(--muted);
+}
+.calendar-panel {
+  background: #e6eddf;
+  border: 0;
+  padding: 25px;
+}
+.calendar-logo {
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--card);
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+}
+.calendar-logo .icon {
+  color: var(--green);
+}
+.calendar-panel h2 {
+  font-size: 20px;
+}
+.calendar-panel p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 13px 0;
+}
+.calendar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #c3d0ba;
+  border-radius: 30px;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.calendar-panel .subtle {
+  font-size: 11px;
+}
+.document {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  margin-bottom: 13px;
+  scroll-margin-top: 20px;
+}
+.document summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  padding: 21px;
+  min-height: 100px;
+}
+.document summary::-webkit-details-marker {
+  display: none;
+}
+.document summary > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.document strong {
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+}
+.document small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.document-meta {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.document-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 49px;
+  border-radius: 12px;
+  background: #e8eee1;
+  flex-shrink: 0;
+}
+.chevron {
+  font-size: 21px;
+}
+.document[open] .chevron {
+  transform: rotate(180deg);
+}
+.document-body {
+  padding: 0 21px 21px;
+}
+.document-result {
+  padding: 17px 0;
+  border-top: 1px solid var(--line);
+  margin-top: 15px;
+}
+.document-result > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+}
+.document-result h3 {
+  font-size: 14px;
+}
+.document-value {
+  font-size: 20px;
+  white-space: nowrap;
+}
+.document-value small {
+  display: inline-block;
+  font-size: 11px;
+}
+.document-result p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 8px 0 4px;
+}
+.document-result .subtle {
+  font-size: 10px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1120px;
+  background: #fafbf4ed;
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  padding: 9px 28px calc(9px + env(safe-area-inset-bottom));
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.bottom-nav button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 53px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 10px;
+  border-radius: 13px;
+}
+.bottom-nav [aria-current="page"] {
+  color: var(--green);
+  font-weight: 650;
+  background: #e7efde;
+}
+.bottom-nav .icon {
+  width: 21px;
+  height: 21px;
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 22px;
+}
+summary:focus-visible {
+  border-radius: 14px;
+}
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 0 22px;
+  }
+  .topbar {
+    padding: 21px 0 17px;
+  }
+  .main {
+    padding-top: 24px;
+  }
+  .intro {
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+  .home-layout,
+  .evolution-layout,
+  .agenda-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .hero {
+    padding: 21px 20px 15px;
+  }
+  .hero-top {
+    margin-bottom: 15px;
+  }
+  .hero-value {
+    font-size: 48px;
+  }
+  .summary-counts {
+    margin: 21px 0;
+  }
+  .summary-counts span {
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  .summary-counts strong {
+    font-size: 18px;
+  }
+  .metric-card {
+    padding: 15px;
+  }
+  .section-heading {
+    margin-bottom: 13px;
+  }
+  .metric-value {
+    font-size: 27px;
+  }
+  .tools {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .panel {
+    padding: 19px;
+  }
+  .bottom-nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .home-footer {
+    display: block;
+  }
+  .appointment {
+    padding: 17px;
+    gap: 12px;
+  }
+  .document summary {
+    padding: 17px;
+    gap: 11px;
+  }
+  .document-body {
+    padding: 0 17px 17px;
+  }
+  .document-result > div {
+    align-items: start;
+  }
+  .document-value {
+    font-size: 18px;
+    white-space: normal;
+    text-align: right;
+  }
+  .document-value small {
+    display: block;
+  }
+  .document strong {
+    font-size: 14px;
+  }
+  .document-icon {
+    width: 35px;
+    height: 42px;
+  }
+  .home-footer .text-button {
+    margin-top: 9px;
+  }
+  .privacy {
+    font-size: 11px;
+  }
+  .hero-footer .status {
+    font-size: 10px;
+  }
+  .chart text {
+    font-size: 14px;
+  }
+  .chart-note {
+    font-size: 10px;
+  }
+  .hero-link {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .metric-card {
+    transition: none;
+  }
+}
+.period-coverage {
+  margin: -8px 0 21px;
+}
+</style></head>
+<body><div class="app-shell"><header class="topbar"><div class="brand"><span id="brand-mark" class="brand-mark"></span>MiSalud</div><span id="privacy-mark" class="privacy"></span></header><main class="main">
+<section id="inicio" class="view"><div class="intro"><p class="eyebrow" id="mode-label"></p><h1 tabindex="-1">Tu salud,<br>a través del tiempo.</h1><p class="period" id="period"></p><div id="summary-counts" class="summary-counts"></div></div><div class="home-layout"><article id="hero" class="hero"></article><div><div class="section-heading"><h2>De un vistazo</h2><p id="metric-count"></p></div><div id="metric-cards" class="metric-cards"></div><button class="text-button" data-view="evolucion">Explorar todos los indicadores →</button></div></div><div class="home-footer"><p class="subtle">Resultados transcritos para revisar. Los rangos pertenecen a cada laboratorio y no sustituyen una interpretación clínica.</p><button class="text-button" data-view="examenes">Consultar informes →</button></div></section>
+<section id="evolucion" class="view" hidden><p class="eyebrow">Tu recorrido</p><h1 tabindex="-1">Cada resultado<br>tiene una historia.</h1><div class="tools"><label><span class="search-label"><span>Buscar indicador</span><span id="search-count"></span></span><input id="search" type="search" placeholder="Nombre, grupo o laboratorio" autocomplete="off"></label><label>Indicador y unidad<select id="indicator"></select></label></div><div class="segmented" role="group" aria-label="Período del gráfico"><button data-months="3" aria-pressed="false">3 meses</button><button data-months="6" aria-pressed="false">6 meses</button><button data-months="12" aria-pressed="true">12 meses</button><button data-months="60" aria-pressed="false">5 años</button><button data-months="120" aria-pressed="false">10 años</button></div><p id="coverage" class="subtle period-coverage"></p><div class="evolution-layout"><article class="panel"><p id="chart-category" class="eyebrow"></p><h2 id="chart-title" class="evolution-title"></h2><span id="evolution-value" class="evolution-value"></span><span id="chart-unit" class="unit-label"></span><p id="evolution-date" class="evolution-date"></p><div id="chart-area"></div><p id="series-note" class="subtle"></p></article><div><article id="point-details" class="panel" aria-live="polite"></article><h2 id="records-title" class="records-heading"></h2><div id="point-list"></div></div></div></section>
+<section id="citas" class="view" hidden><p class="eyebrow">Tu agenda</p><h1 tabindex="-1">Un espacio<br>para tus consultas.</h1><p id="agenda-asof" class="period"></p><div id="agenda-note" class="agenda-note"></div><div class="agenda-layout"><div><h2 class="agenda-section-title">Próximas citas</h2><div id="upcoming"></div><h2 class="agenda-section-title past-title">Citas pasadas</h2><div id="past"></div></div><article class="panel calendar-panel"><div class="calendar-logo"><span data-nav-icon="calendar"></span></div><h2>También en tu calendario</h2><p>La idea: tener tus citas a mano en MiSalud y Google Calendar.</p><span class="calendar-status">○ Google Calendar · No conectado</span><p class="subtle">Vista previa de una futura integración. No se han enviado eventos ni datos a Google.</p></article></div></section>
+<section id="examenes" class="view" hidden><p class="eyebrow">Tus fuentes</p><h1 tabindex="-1">Los datos empiezan<br>en tus informes.</h1><p id="document-count" class="period"></p><p class="subtle footer-note">Abre un informe para consultar los valores transcritos, sus referencias y la página de origen.</p><div id="document-list" class="footer-note"></div></section>
+<noscript>Activa JavaScript para consultar esta vista local interactiva.</noscript></main></div>
+<nav class="bottom-nav" aria-label="Navegación principal"><button data-view="inicio" aria-current="page"><span data-nav-icon="home"></span>Inicio</button><button data-view="evolucion"><span data-nav-icon="chart"></span>Evolución</button><button data-view="citas"><span data-nav-icon="calendar"></span>Citas</button><button data-view="examenes"><span data-nav-icon="file"></span>Exámenes</button></nav><script>(function mountMockup(data, model) {
+  const q = (selector) => document.querySelector(selector);
+  const esc = (value) =>
+    String(value).replace(
+      /[&<>"']/g,
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+    );
+  const icon = (name) => {
+    const paths = {
+      home: '<path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/>',
+      chart: '<path d="M4 4v16h17M7 14l4-5 4 3 5-7"/>',
+      calendar:
+        '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2"/>',
+      file: '<path d="M14 3H5v18h14V8zM14 3v6h5M8 13h8m-8 4h6"/>',
+      arrow: '<path d="M4 12h16m-6-6 6 6-6 6"/>',
+      lock: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>',
+      plus: '<path d="M12 5v14M5 12h14"/>',
+    };
+    return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.file}</svg>`;
+  };
+  const allSeries = model.series(data, 120);
+  const state = { key: allSeries[0]?.key ?? '', months: 12, selectedId: null };
+  const source = (o) => data.documents.find((d) => d.id === o.sourceId);
+  const status = () =>
+    '<span class="status"><span aria-hidden="true">◌</span> Por confirmar</span>';
+  const unit = (value) => value || 'Sin unidad';
+  const fullDate = (date) => model.formatDate(date);
+  const dateShort = (date) => model.formatDate(date, true);
+  const num = (value) => model.number(value);
+  function chart(items, hero = false) {
+    if (!items.length)
+      return '<div class="empty"><p>No hay resultados en este período.</p><span>Prueba con un período más amplio.</span></div>';
+    const g = model.geometry(items);
+    const labels = [g.high, (g.high + g.low) / 2, g.low];
+    const ticks = labels
+      .map((value, index) => {
+        const y = 34 + index * 62;
+        return `<line x1="56" x2="320" y1="${y}" y2="${y}"/><text x="45" y="${y + 4}" text-anchor="end">${esc(model.axisNumber(value))}</text>`;
+      })
+      .join('');
+    const dots = g.points
+      .map((p, i) => {
+        const o = items[i];
+        const label = `${fullDate(o.date)}: ${num(o.value)} ${unit(o.unit)}. ${source(o).lab}`;
+        return `<g><circle class="point-hit" cx="${p.x}" cy="${p.y}" r="17" ${hero ? '' : `role="button" tabindex="0" data-point="${esc(o.id)}" aria-label="${esc(label)}"`}/><circle class="point" cx="${p.x}" cy="${p.y}" r="5" aria-hidden="true"/><title>${esc(label)}</title></g>`;
+      })
+      .join('');
+    const line =
+      items.length > 1
+        ? `<polyline points="${g.points.map((p) => `${p.x},${p.y}`).join(' ')}"/>`
+        : '';
+    const dates =
+      g.start === g.end
+        ? `<text x="188" y="191" text-anchor="middle">${esc(fullDate(items[0].date))}</text>`
+        : `<text x="56" y="191" text-anchor="start">${esc(fullDate(items[0].date))}</text><text x="320" y="191" text-anchor="end">${esc(fullDate(items[items.length - 1].date))}</text>`;
+    return `<svg class="chart" viewBox="0 0 350 210" role="group" aria-label="Evolución de ${esc(items[0].label)} en ${esc(unit(items[0].unit))}. Eje horizontal: fecha; eje vertical: valor.">${ticks}${line}${dots}${dates}</svg>${items.length === 1 ? '<p class="chart-note">Una medición disponible; aún no hay una tendencia.</p>' : '<p class="chart-note">Cada punto es una medición. La línea solo une los registros.</p>'}`;
+  }
+  function navigate(view, focus = true) {
+    document.querySelectorAll('.view').forEach((section) => {
+      section.hidden = section.id !== view;
+    });
+    document.querySelectorAll('[data-view]').forEach((button) => {
+      if (button.dataset.view === view) button.setAttribute('aria-current', 'page');
+      else button.removeAttribute('aria-current');
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (focus) q(`#${view} h1`)?.focus({ preventScroll: true });
+  }
+  function openSeries(key) {
+    state.key = key;
+    q('#search').value = '';
+    updateOptions();
+    drawEvolution();
+    navigate('evolucion');
+  }
+  function renderHome() {
+    const results = model.observations(data);
+    const documents = model.visibleDocuments(data, 12);
+    const homeSeries = model.series(data, 12);
+    const main = homeSeries[0];
+    const latest = main?.items.at(-1);
+    q('#summary-counts').innerHTML =
+      `<span><strong>${documents.length}</strong> informes</span><span><strong>${results.length}</strong> resultados</span><span><strong>12</strong> meses</span>`;
+    q('#period').textContent =
+      `${fullDate(model.cutoff(data.asOf, 12, data.periodStart))} — ${fullDate(data.asOf)}`;
+    q('#hero').innerHTML = latest
+      ? `<div class="hero-top"><span class="eyebrow">Evolución destacada</span><span class="hero-icon">${icon('chart')}</span></div><h2>${esc(main.label)}</h2><div class="hero-value">${esc(num(latest.value))}<span>${esc(unit(main.unit))}</span></div><p class="hero-source">${esc(source(latest).lab)} · ${esc(fullDate(latest.date))}</p>${chart(main.items, true)}<div class="hero-footer">${status()}<button class="hero-link" data-series="${esc(main.key)}">Ver evolución ${icon('arrow')}</button></div>`
+      : '<h2>Tus resultados aparecerán aquí</h2><p>No hay resultados disponibles en este período.</p>';
+    q('#metric-cards').innerHTML =
+      homeSeries
+        .slice(0, 6)
+        .map((group) => {
+          const o = group.items.at(-1);
+          return `<button class="metric-card" data-series="${esc(group.key)}"><span class="eyebrow">${esc(group.category)}</span><h3>${esc(group.label)}</h3><span class="metric-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span><span class="metric-meta">${esc(source(o).lab)}<br>${esc(dateShort(o.date))}</span><span class="metric-bottom">${status()}${icon('arrow')}</span></button>`;
+        })
+        .join('') || '<p class="empty">Sin indicadores disponibles.</p>';
+    q('#metric-count').textContent = `${homeSeries.length} series del último año`;
+  }
+  function updateOptions() {
+    const query = q('#search').value.trim().toLocaleLowerCase('es');
+    const groups = model.filterSeries(allSeries, data.documents, query);
+    if (!groups.some((s) => s.key === state.key)) state.key = groups[0]?.key ?? '';
+    q('#indicator').innerHTML = groups.length
+      ? groups
+          .map(
+            (s) => `<option value="${esc(s.key)}">${esc(s.label)} · ${esc(unit(s.unit))}</option>`,
+          )
+          .join('')
+      : '<option value="">Sin coincidencias</option>';
+    q('#indicator').value = state.key;
+    q('#indicator').disabled = !groups.length;
+    q('#search-count').textContent = `${groups.length} ${groups.length === 1 ? 'serie' : 'series'}`;
+  }
+  function drawEvolution() {
+    const group = allSeries.find((s) => s.key === state.key);
+    const items = model
+      .observations(data, state.months)
+      .filter((o) => model.seriesKey(o) === state.key);
+    const latest = items.at(-1);
+    if (!items.some((o) => o.id === state.selectedId)) state.selectedId = latest?.id ?? null;
+    q('#coverage').textContent =
+      'Período: ' +
+      fullDate(model.cutoff(data.asOf, state.months, '0001-01-01')) +
+      ' — ' +
+      fullDate(data.asOf) +
+      '. Datos cargados desde ' +
+      fullDate(data.periodStart) +
+      '.';
+    q('#chart-title').textContent = group?.label ?? 'Sin indicador';
+    q('#chart-category').textContent = group?.category ?? 'Búsqueda';
+    q('#chart-unit').textContent = group ? unit(group.unit) : '';
+    q('#evolution-value').textContent = latest ? num(latest.value) : '—';
+    q('#evolution-date').textContent = latest
+      ? `Último registro · ${fullDate(latest.date)}`
+      : 'No hay registros para esta selección';
+    q('#chart-area').innerHTML = chart(items);
+    q('#series-note').textContent = group
+      ? 'Unidades conservadas. Consulta el rango de cada laboratorio en su registro.'
+      : '';
+    q('#point-list').innerHTML = items
+      .map(
+        (o) =>
+          `<button class="record ${state.selectedId === o.id ? 'selected' : ''}" data-point="${esc(o.id)}" aria-pressed="${state.selectedId === o.id}"><span><strong>${esc(fullDate(o.date))}</strong><small>${esc(source(o).lab)}</small></span><span class="record-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span></button>`,
+      )
+      .join('');
+    const selected = items.find((o) => o.id === state.selectedId);
+    q('#point-details').innerHTML = selected
+      ? `<div class="detail-heading"><span class="eyebrow">Registro seleccionado</span>${status()}</div><h3>${esc(fullDate(selected.date))}</h3><dl><div><dt>Resultado</dt><dd>${esc(num(selected.value))} ${esc(unit(selected.unit))}</dd></div><div><dt>Referencia del informe</dt><dd>${esc(selected.referenceText)}</dd></div><div><dt>Fuente</dt><dd>${esc(source(selected).title)}<br>${esc(source(selected).lab)} · página ${selected.page}</dd></div><div><dt>Fecha registrada</dt><dd>${esc(source(selected).dateLabel ?? 'Fecha del informe')}</dd></div></dl><button class="text-button" data-document="${esc(selected.sourceId)}">Ver resultados de este informe ${icon('arrow')}</button>`
+      : '<p class="empty">Selecciona otro indicador o período para ver sus registros.</p>';
+    q('#records-title').textContent = `Registros · ${items.length}`;
+  }
+  function renderAppointments() {
+    const agenda = model.appointments(data);
+    q('#agenda-note').innerHTML = agenda.example
+      ? '<span class="example-badge">Vista de ejemplo</span><p>No has agregado citas. Estas muestras ilustran cómo se verá tu agenda.</p>'
+      : '<p>Citas incluidas en esta vista local.</p>';
+    const appointment = (a, past) => {
+      const day = new Date(model.timestamp(a.date)).getUTCDate();
+      const month = new Intl.DateTimeFormat('es-CL', { month: 'short', timeZone: 'UTC' }).format(
+        new Date(model.timestamp(a.date)),
+      );
+      return `<article class="appointment ${past ? 'past' : ''}"><div class="date-tile"><strong>${day}</strong><span>${esc(month)}</span></div><div><div class="appointment-top"><span class="eyebrow">${esc(a.time || 'Hora por definir')}</span>${agenda.example ? '<span class="example-badge">Ejemplo</span>' : ''}</div><h3>${esc(a.title)}</h3><p>${esc(a.professional || 'Profesional por definir')}</p><span class="appointment-location">${esc(a.location || 'Lugar por definir')} · ${esc(fullDate(a.date))}</span></div></article>`;
+    };
+    q('#upcoming').innerHTML =
+      agenda.upcoming.map((a) => appointment(a, false)).join('') ||
+      '<p class="empty">No hay citas próximas.</p>';
+    q('#past').innerHTML =
+      agenda.past.map((a) => appointment(a, true)).join('') ||
+      '<p class="empty">No hay citas pasadas.</p>';
+    q('#agenda-asof').textContent = `Agenda al ${fullDate(data.asOf)}`;
+  }
+  function renderDocuments() {
+    const documents = model.visibleDocuments(data, 120);
+    q('#document-count').textContent = `${documents.length} informes · fuentes de tus resultados`;
+    q('#document-list').innerHTML =
+      documents
+        .map((d) => {
+          const rows = model.observations(data, 120).filter((o) => o.sourceId === d.id);
+          return `<details class="document" data-document-id="${esc(d.id)}"><summary><span class="document-icon">${icon('file')}</span><span><strong>${esc(d.title)}</strong><small>${esc(d.lab)} · ${esc(fullDate(d.date))}</small><span class="document-meta">${rows.length} resultados · ${esc(d.dateLabel ?? 'Fecha del informe')}</span></span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="document-body"><p class="subtle">Transcripción para el mockup. Revisa los valores con el informe original; todos están por confirmar.</p>${rows.map((o) => `<div class="document-result"><div><h3>${esc(o.label)}</h3><span class="document-value">${esc(num(o.value))} <small>${esc(unit(o.unit))}</small></span></div><p>${esc(o.referenceText)}</p><span class="subtle">Página ${o.page} · Por confirmar</span></div>`).join('') || '<p class="empty">Sin resultados transcritos de este informe.</p>'}</div></details>`;
+        })
+        .join('') || '<p class="empty">No hay informes en este período.</p>';
+  }
+  q('#brand-mark').innerHTML = icon('plus');
+  q('#privacy-mark').innerHTML =
+    data.mode === 'demo' ? 'Demo ficticia' : `${icon('lock')} Vista local`;
+  q('#mode-label').textContent =
+    data.mode === 'demo' ? 'Demostración con datos ficticios' : 'Tu espacio personal';
+  document.querySelectorAll('[data-nav-icon]').forEach((node) => {
+    node.innerHTML = icon(node.dataset.navIcon);
+  });
+  renderHome();
+  updateOptions();
+  drawEvolution();
+  renderAppointments();
+  renderDocuments();
+  document.addEventListener('click', (event) => {
+    const nav = event.target.closest('[data-view]');
+    if (nav) navigate(nav.dataset.view);
+    const series = event.target.closest('[data-series]');
+    if (series) openSeries(series.dataset.series);
+    const period = event.target.closest('[data-months]');
+    if (period) {
+      state.months = Number(period.dataset.months);
+      document.querySelectorAll('[data-months]').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b === period));
+      });
+      drawEvolution();
+    }
+    const point = event.target.closest('[data-point]');
+    if (point) {
+      state.selectedId = point.dataset.point;
+      drawEvolution();
+    }
+    const documentButton = event.target.closest('[data-document]');
+    if (documentButton) {
+      navigate('examenes');
+      const target = [...document.querySelectorAll('[data-document-id]')].find(
+        (d) => d.dataset.documentId === documentButton.dataset.document,
+      );
+      if (target) {
+        target.open = true;
+        target.scrollIntoView({ block: 'start' });
+        target.querySelector('summary').focus({ preventScroll: true });
+      }
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.target.matches('circle[data-point]') && ['Enter', ' '].includes(event.key)) {
+      event.preventDefault();
+      state.selectedId = event.target.dataset.point;
+      drawEvolution();
+    }
+  });
+  q('#search').addEventListener('input', () => {
+    updateOptions();
+    drawEvolution();
+  });
+  q('#indicator').addEventListener('change', (event) => {
+    state.key = event.target.value;
+    state.selectedId = null;
+    drawEvolution();
+  });
+  navigate('inicio', false);
+})({"asOf":"2026-09-07","periodStart":"2016-09-07","mode":"demo","documents":[{"id":"demo-oct","title":"Informe de ejemplo · octubre","date":"2025-10-14","lab":"Laboratorio ficticio A","dateLabel":"Toma de muestra"},{"id":"demo-jan","title":"Informe de ejemplo · enero","date":"2026-01-14","lab":"Laboratorio ficticio A","dateLabel":"Toma de muestra"},{"id":"demo-jun","title":"Informe de ejemplo · junio","date":"2026-06-18","lab":"Laboratorio ficticio B","dateLabel":"Toma de muestra"},{"id":"demo-2018","date":"2018-10-14","title":"Informe ficticio · 2018","lab":"Laboratorio ficticio A"},{"id":"demo-2022","date":"2022-10-14","title":"Informe ficticio · 2022","lab":"Laboratorio ficticio A"}],"observations":[{"id":"example-1","indicator":"indicator-a","label":"Indicador A (ejemplo)","category":"Grupo de ejemplo","date":"2025-10-14","value":42,"unit":"u. demo","referenceText":"35 - 60 u. demo (ficticio)","low":35,"high":60,"sourceId":"demo-oct","page":1,"status":"requiere_confirmacion"},{"id":"example-2","indicator":"indicator-a","label":"Indicador A (ejemplo)","category":"Grupo de ejemplo","date":"2026-01-14","value":48,"unit":"u. demo","referenceText":"35 - 60 u. demo (ficticio)","sourceId":"demo-jan","page":1,"status":"requiere_confirmacion"},{"id":"example-3","indicator":"indicator-a","label":"Indicador A (ejemplo)","category":"Grupo de ejemplo","date":"2026-06-18","value":45,"unit":"u. demo","referenceText":"36 - 58 u. demo (ficticio)","sourceId":"demo-jun","page":1,"status":"requiere_confirmacion"},{"id":"example-4","indicator":"indicator-b","label":"Indicador B (ejemplo)","category":"Otro grupo","date":"2026-06-18","value":12,"unit":"","referenceText":"8 - 16 (ficticio)","sourceId":"demo-jun","page":2,"status":"requiere_confirmacion"},{"id":"demo-2018","indicator":"indicator-a","label":"Indicador A (ejemplo)","category":"Grupo de ejemplo","date":"2018-10-14","value":39,"unit":"u. demo","referenceText":"35 - 60 u. demo (ficticio)","low":35,"high":60,"sourceId":"demo-2018","page":1,"status":"requiere_confirmacion"},{"id":"demo-2022","indicator":"indicator-a","label":"Indicador A (ejemplo)","category":"Grupo de ejemplo","date":"2022-10-14","value":46,"unit":"u. demo","referenceText":"35 - 60 u. demo (ficticio)","low":35,"high":60,"sourceId":"demo-2022","page":1,"status":"requiere_confirmacion"}],"appointments":[]}, (function createViewModel() {
+  const isoDate = (value) => {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const time = Date.parse(`${value}T00:00:00Z`);
+    return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
+  };
+  const timestamp = (date) => Date.parse(`${date}T00:00:00Z`);
+  const formatDate = (date, short = false) =>
+    new Intl.DateTimeFormat('es-CL', {
+      day: 'numeric',
+      month: 'short',
+      ...(short ? {} : { year: 'numeric' }),
+      timeZone: 'UTC',
+    }).format(new Date(timestamp(date)));
+  const number = (value) =>
+    new Intl.NumberFormat('es-CL', { maximumSignificantDigits: 21 }).format(value);
+  const axisNumber = (value) =>
+    new Intl.NumberFormat('es-CL', { maximumSignificantDigits: 3 }).format(value);
+  const seriesKey = (observation) => JSON.stringify([observation.indicator, observation.unit]);
+  function cutoff(asOf, months, periodStart) {
+    const current = new Date(timestamp(asOf));
+    const day = current.getUTCDate();
+    current.setUTCDate(1);
+    current.setUTCMonth(current.getUTCMonth() - months);
+    const lastDay = new Date(
+      Date.UTC(current.getUTCFullYear(), current.getUTCMonth() + 1, 0),
+    ).getUTCDate();
+    current.setUTCDate(Math.min(day, lastDay));
+    const date = current.toISOString().slice(0, 10);
+    return date > periodStart ? date : periodStart;
+  }
+  function observations(data, months = 12) {
+    const from = cutoff(data.asOf, months, data.periodStart);
+    return data.observations
+      .filter((o) => o.date >= from && o.date <= data.asOf)
+      .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  }
+  function series(data, months = 12) {
+    const groups = new Map();
+    for (const o of observations(data, months)) {
+      const key = seriesKey(o);
+      if (!groups.has(key))
+        groups.set(key, { key, label: o.label, category: o.category, unit: o.unit, items: [] });
+      groups.get(key).items.push(o);
+    }
+    return [...groups.values()];
+  }
+  function visibleDocuments(data, months = 12) {
+    const from = cutoff(data.asOf, months, data.periodStart);
+    const referenced = new Set(observations(data, months).map((o) => o.sourceId));
+    return data.documents
+      .filter((d) => referenced.has(d.id) || (d.date >= from && d.date <= data.asOf))
+      .sort((a, b) => b.date.localeCompare(a.date));
+  }
+  function filterSeries(groups, documents, query) {
+    const needle = query.trim().toLocaleLowerCase('es');
+    const laboratories = new Map(documents.map((document) => [document.id, document.lab]));
+    return groups.filter(
+      (group) =>
+        `${group.label} ${group.category} ${group.unit}`.toLocaleLowerCase('es').includes(needle) ||
+        group.items.some((item) =>
+          (laboratories.get(item.sourceId) ?? '').toLocaleLowerCase('es').includes(needle),
+        ),
+    );
+  }
+  function geometry(items) {
+    const values = items.map((o) => o.value);
+    const dates = items.map((o) => timestamp(o.date));
+    const min = Math.min(...values),
+      max = Math.max(...values);
+    const padding =
+      (max > min ? (max - min) * 0.22 : (Math.abs(max) || 1) * 0.05) || Number.MIN_VALUE;
+    const low = min - padding,
+      high = max + padding;
+    const start = Math.min(...dates),
+      end = Math.max(...dates);
+    return {
+      low,
+      high,
+      start,
+      end,
+      points: items.map((o, i) => ({
+        x: start === end ? 188 : 56 + ((dates[i] - start) / (end - start)) * 264,
+        y: 158 - ((o.value - low) / (high - low)) * 124,
+      })),
+    };
+  }
+  function appointments(data) {
+    const example = data.appointments.length === 0;
+    const shifted = (days) =>
+      new Date(timestamp(data.asOf) + days * 86400000).toISOString().slice(0, 10);
+    const items = example
+      ? [
+          {
+            id: 'example-next',
+            title: 'Consulta de medicina general',
+            date: shifted(7),
+            time: '10:30',
+            professional: 'Profesional de ejemplo',
+            location: 'Centro médico de ejemplo',
+          },
+          {
+            id: 'example-control',
+            title: 'Revisión de exámenes',
+            date: shifted(28),
+            time: '16:00',
+            professional: 'Profesional de ejemplo',
+            location: 'Consulta de ejemplo',
+          },
+          {
+            id: 'example-past',
+            title: 'Control de seguimiento',
+            date: shifted(-21),
+            time: '09:00',
+            professional: 'Profesional de ejemplo',
+            location: 'Centro médico de ejemplo',
+          },
+        ]
+      : data.appointments;
+    return {
+      example,
+      upcoming: items
+        .filter((a) => a.date >= data.asOf)
+        .sort((a, b) => `${a.date}${a.time}`.localeCompare(`${b.date}${b.time}`)),
+      past: items
+        .filter((a) => a.date < data.asOf)
+        .sort((a, b) => `${b.date}${b.time}`.localeCompare(`${a.date}${a.time}`)),
+    };
+  }
+  return {
+    isoDate,
+    timestamp,
+    formatDate,
+    number,
+    axisNumber,
+    seriesKey,
+    cutoff,
+    observations,
+    series,
+    filterSeries,
+    visibleDocuments,
+    geometry,
+    appointments,
+  };
+})());</script></body></html>
