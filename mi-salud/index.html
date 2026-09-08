@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Q6b5KfrNHJRavGG/iLps3HqgVLw+tRKSJAFTDgt9agE='; style-src 'sha256-yPKrEma2ga98NSabitV64lkgJQCU+EnvADRwzGCIjAQ='; base-uri 'none'; form-action 'none'"><title>MiSalud · Mi evolución</title><style>:root {
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mTOuNn9IqqNzVT7pin+IyAP/A4kCcHpkCQPpb83j6Ks='; style-src 'sha256-ldLGFjhdyPsGpYR9g3b3EdH14RkJvGBWBF2k0Xl5MQ0='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>MiSalud · demostración visual</title><style>:root {
   color-scheme: light;
   --ink: #183b35;
   --muted: #61756d;
@@ -983,14 +983,809 @@ summary:focus-visible {
 .period-coverage {
   margin: -8px 0 21px;
 }
+
+/* Shared controls for the complete, self-contained visual walkthrough. */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.quick-nav {
+  position: relative;
+  z-index: 20;
+}
+.quick-nav summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--green);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+  list-style: none;
+}
+.quick-nav summary::-webkit-details-marker {
+  display: none;
+}
+.quick-nav summary::after {
+  content: "⌄";
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 1;
+}
+.quick-nav[open] summary::after {
+  transform: rotate(180deg);
+}
+.quick-menu {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(145px, 1fr));
+  gap: 4px;
+  width: min(360px, calc(100vw - 44px));
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 15px 34px #183b3520;
+}
+.quick-menu button {
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  min-height: 42px;
+  padding: 7px 9px;
+  text-align: left;
+  font-size: 11px;
+}
+.quick-menu button:hover,
+.quick-menu button[aria-current="page"] {
+  background: #e7efde;
+  color: var(--green);
+  font-weight: 650;
+}
+.demo-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 10px 13px;
+  border: 1px solid #cbd9b3;
+  border-radius: 12px;
+  background: #edf2e8;
+  color: #566f38;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.demo-banner strong {
+  font-weight: 700;
+}
+.demo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #91ae5e;
+  flex: 0 0 auto;
+}
+.demo-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 90px;
+  z-index: 30;
+  max-width: min(360px, calc(100vw - 40px));
+  padding: 13px 16px;
+  border: 1px solid #abc7b4;
+  border-radius: 13px;
+  background: var(--green);
+  color: #fffef7;
+  box-shadow: 0 12px 24px #174e4330;
+  font-size: 12px;
+}
+.demo-toast.is-visible {
+  display: block;
+}
+.access-strip,
+.share-toolbar,
+.vault-status,
+.review-context,
+.honest-note,
+.permission-summary,
+.next-step {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.access-strip {
+  justify-content: space-between;
+  padding: 19px 22px;
+  margin: 18px 0 25px;
+  border: 1px solid #c7d8c8;
+  border-radius: 18px;
+  background: #e9f0e7;
+}
+.access-strip > div,
+.next-step > div,
+.permission-summary > div {
+  min-width: 0;
+}
+.access-strip h2 {
+  margin: 4px 0 5px;
+  font-size: 18px;
+}
+.access-strip p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.primary-button,
+.secondary-button,
+.danger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 15px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 650;
+  text-align: center;
+}
+.primary-button {
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #fffef7;
+}
+.primary-button:hover {
+  background: #236455;
+}
+.primary-button:disabled {
+  border-color: #9daea2;
+  background: #aab8ad;
+  color: #edf2e8;
+}
+.primary-button small {
+  font-size: 10px;
+  font-weight: 450;
+}
+.secondary-button {
+  border: 1px solid #adc7b4;
+  background: #edf3ea;
+  color: var(--green);
+}
+.secondary-button:hover {
+  border-color: #779987;
+  background: #e1edde;
+}
+.danger-button {
+  border: 1px solid #dbb4a6;
+  background: #fff5f0;
+  color: #934c39;
+}
+.danger-button:hover {
+  background: #fbe9e0;
+}
+.primary-button .icon,
+.secondary-button .icon,
+.danger-button .icon {
+  width: 17px;
+  height: 17px;
+}
+.split-cards,
+.summary-grid,
+.upload-layout,
+.review-grid,
+.followup-grid,
+.share-list,
+.connection-grid,
+.export-grid {
+  display: grid;
+  gap: 18px;
+}
+.split-cards,
+.upload-layout,
+.review-grid {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+.consent-layout {
+  align-items: stretch;
+  margin-top: 24px;
+}
+.consent-card,
+.info-card,
+.upload-card,
+.url-card,
+.fields-panel,
+.source-panel,
+.followup-card,
+.share-card,
+.connection-card,
+.export-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.consent-card h2,
+.info-card h2,
+.upload-card h2,
+.url-card h2,
+.followup-card h2,
+.share-card h2,
+.connection-card h2,
+.export-card h2 {
+  font-size: 19px;
+}
+.consent-card > p,
+.info-card > p,
+.upload-card > p,
+.url-card > p,
+.followup-card > p,
+.share-card > p,
+.connection-card > p,
+.export-card > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.panel-kicker {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+.round-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  background: #e5efdf;
+  color: var(--green);
+}
+.round-icon .icon {
+  width: 20px;
+  height: 20px;
+}
+.check-list,
+.plain-list {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0;
+  padding: 0;
+  list-style: none;
+}
+.check-list li,
+.plain-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.check-list .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--green);
+}
+.check-row,
+.permission-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.check-row {
+  margin: 5px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.check-row input,
+.permission-row input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--green);
+  flex: 0 0 auto;
+}
+.consent-card .primary-button,
+.upload-card .secondary-button,
+.url-card .secondary-button,
+.followup-card .secondary-button,
+.connection-card .secondary-button,
+.export-card .secondary-button,
+.export-card .danger-button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.info-card {
+  justify-content: center;
+  background: #e9f0e7;
+  border: 0;
+}
+.summary-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin: 24px 0 18px;
+}
+.summary-card strong {
+  margin-top: 6px;
+  font-size: 38px;
+  font-weight: 550;
+  letter-spacing: -1.5px;
+}
+.summary-card h2 {
+  font-size: 18px;
+}
+.summary-card p {
+  min-height: 42px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.vault-status {
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7fa265;
+}
+.next-step {
+  justify-content: space-between;
+  margin-top: 18px;
+}
+.next-step h2 {
+  margin: 3px 0 5px;
+  font-size: 18px;
+}
+.next-step p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 12px;
+}
+.upload-layout {
+  margin-top: 24px;
+}
+.file-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  padding: 13px;
+  border: 1px dashed #9db8a5;
+  border-radius: 13px;
+  background: #f0f4ed;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: center;
+  cursor: pointer;
+}
+.file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+.upload-card .subtle,
+.url-card .subtle {
+  margin-top: 0;
+}
+.url-card label,
+.fields-panel label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+.url-card input,
+.fields-panel input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 6px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fffef9;
+  color: var(--ink);
+  font-size: 14px;
+}
+.url-card input::placeholder {
+  color: #84958b;
+}
+.review-context {
+  margin: 23px 0 18px;
+  padding: 12px 16px;
+  border-radius: 16px;
+}
+.review-context > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.review-context strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.review-context span:not(.round-icon):not(.example-badge) {
+  color: var(--muted);
+  font-size: 11px;
+}
+.review-grid {
+  align-items: start;
+}
+.panel-heading,
+.card-top,
+.share-toolbar,
+.audit-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.panel-heading h2 {
+  margin-top: 3px;
+  font-size: 18px;
+}
+.panel-heading > .icon {
+  color: #789a69;
+}
+.page-count,
+.field-label {
+  color: var(--muted);
+  font-size: 11px;
+}
+.paper-sheet {
+  position: relative;
+  min-height: 310px;
+  margin: 4px 0;
+  padding: 26px 23px;
+  overflow: hidden;
+  border: 1px solid #d5d7cd;
+  background: #faf9f1;
+  box-shadow: 0 5px 0 #dfe2d6;
+  transform: rotate(-0.6deg);
+}
+.paper-brand {
+  color: #67736b;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.2px;
+}
+.paper-line {
+  width: 72%;
+  height: 5px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background: #d7ddd0;
+}
+.paper-line.wide {
+  width: 92%;
+  height: 8px;
+  margin-top: 22px;
+}
+.paper-sheet dl {
+  margin: 27px 0 0;
+}
+.paper-sheet dl div {
+  padding: 11px 0;
+  border-top: 1px solid #e0e2d8;
+}
+.paper-sheet dt {
+  color: #7a867e;
+  font-size: 10px;
+}
+.paper-sheet dd {
+  color: #34483e;
+  font-size: 12px;
+}
+.paper-stamp {
+  position: absolute;
+  right: 15px;
+  bottom: 14px;
+  padding: 4px 7px;
+  border: 1px solid #c99d8f;
+  color: #a06b5b;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  transform: rotate(-8deg);
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+.field-label {
+  margin: 6px 0 -8px;
+}
+.field-value {
+  padding: 11px;
+  border-radius: 10px;
+  background: #f0f4ed;
+  font-size: 13px;
+}
+.feedback {
+  padding: 10px 11px;
+  border-left: 3px solid #aac78e;
+  background: #f1f5ec;
+  color: var(--muted);
+  font-size: 11px;
+}
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.compact-button {
+  min-height: 38px;
+  padding: 7px 11px;
+  font-size: 11px;
+}
+.followup-grid,
+.share-list,
+.connection-grid,
+.export-grid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 24px;
+}
+.followup-card dl {
+  margin: 4px 0;
+}
+.followup-card dl div {
+  padding: 10px 0;
+}
+.muted-card {
+  background: #f1f3ec;
+}
+.share-toolbar {
+  align-items: center;
+  margin-top: 24px;
+  padding: 14px 17px;
+  border: 1px solid #c7d8c8;
+  border-radius: 15px;
+  background: #e9f0e7;
+}
+.share-toolbar > div {
+  display: grid;
+  gap: 2px;
+}
+.share-toolbar strong {
+  font-size: 14px;
+}
+.share-toolbar span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.share-state,
+.connection-state {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 650;
+}
+.share-state.active {
+  color: #63834c;
+}
+.share-card.revoked {
+  opacity: 0.74;
+}
+.share-meta {
+  display: grid;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+.danger-button.text-button {
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 0;
+  background: transparent;
+}
+.danger-button.text-button:hover {
+  background: #fbe9e0;
+}
+.connection-card fieldset {
+  display: grid;
+  gap: 9px;
+  margin: 3px 0 5px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+.connection-card legend {
+  padding: 0 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.connection-card .secondary-button {
+  margin-top: auto;
+}
+.permission-summary {
+  align-items: flex-start;
+  margin-top: 18px;
+}
+.permission-summary .text-button {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.audit-toolbar {
+  align-items: center;
+  margin: 24px 0 13px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.audit-list {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+}
+.audit-row {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 13px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.audit-row:last-child {
+  border-bottom: 0;
+}
+.audit-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: #e8eee1;
+  color: var(--green);
+}
+.audit-icon .icon {
+  width: 18px;
+  height: 18px;
+}
+.audit-row div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.audit-row strong {
+  font-size: 13px;
+}
+.audit-row span,
+.audit-row time {
+  color: var(--muted);
+  font-size: 11px;
+}
+.export-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.export-card {
+  min-height: 255px;
+}
+.danger-card {
+  border-color: #e4c6ba;
+  background: #fffaf6;
+}
+.honest-note {
+  align-items: flex-start;
+  margin-top: 18px;
+  padding: 15px 17px;
+  border-radius: 15px;
+  background: #e9f0e7;
+}
+.honest-note p {
+  color: var(--muted);
+  font-size: 12px;
+}
+.honest-note strong {
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .topbar-actions {
+    gap: 8px;
+  }
+  .topbar-actions .privacy {
+    max-width: 92px;
+    text-align: right;
+  }
+  .quick-menu {
+    right: -5px;
+    grid-template-columns: 1fr 1fr;
+    width: min(340px, calc(100vw - 34px));
+  }
+  .demo-banner {
+    align-items: flex-start;
+    margin-top: 12px;
+    font-size: 10px;
+  }
+  .demo-toast {
+    right: 16px;
+    bottom: 82px;
+  }
+  .access-strip,
+  .share-toolbar,
+  .vault-status,
+  .review-context,
+  .honest-note,
+  .permission-summary,
+  .next-step {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .access-strip .primary-button,
+  .share-toolbar .primary-button,
+  .next-step .primary-button,
+  .permission-summary .text-button {
+    margin-left: 0;
+  }
+  .split-cards,
+  .summary-grid,
+  .upload-layout,
+  .review-grid,
+  .followup-grid,
+  .share-list,
+  .connection-grid,
+  .export-grid {
+    grid-template-columns: 1fr;
+  }
+  .summary-card p {
+    min-height: 0;
+  }
+  .summary-card strong {
+    font-size: 32px;
+  }
+  .paper-sheet {
+    min-height: 280px;
+  }
+  .audit-row {
+    grid-template-columns: 34px 1fr;
+    gap: 11px;
+    padding: 14px;
+  }
+  .audit-row time {
+    grid-column: 2;
+  }
+  .export-card {
+    min-height: 0;
+  }
+}
 </style></head>
-<body><div class="app-shell"><header class="topbar"><div class="brand"><span id="brand-mark" class="brand-mark"></span>MiSalud</div><span id="privacy-mark" class="privacy"></span></header><main class="main">
-<section id="inicio" class="view"><div class="intro"><p class="eyebrow" id="mode-label"></p><h1 tabindex="-1">Tu salud,<br>a través del tiempo.</h1><p class="period" id="period"></p><div id="summary-counts" class="summary-counts"></div></div><div class="home-layout"><article id="hero" class="hero"></article><div><div class="section-heading"><h2>De un vistazo</h2><p id="metric-count"></p></div><div id="metric-cards" class="metric-cards"></div><button class="text-button" data-view="evolucion">Explorar todos los indicadores →</button></div></div><div class="home-footer"><p class="subtle">Resultados transcritos para revisar. Los rangos pertenecen a cada laboratorio y no sustituyen una interpretación clínica.</p><button class="text-button" data-view="examenes">Consultar informes →</button></div></section>
-<section id="evolucion" class="view" hidden><p class="eyebrow">Tu recorrido</p><h1 tabindex="-1">Cada resultado<br>tiene una historia.</h1><div class="tools"><label><span class="search-label"><span>Buscar indicador</span><span id="search-count"></span></span><input id="search" type="search" placeholder="Nombre, grupo o laboratorio" autocomplete="off"></label><label>Indicador y unidad<select id="indicator"></select></label></div><div class="segmented" role="group" aria-label="Período del gráfico"><button data-months="3" aria-pressed="false">3 meses</button><button data-months="6" aria-pressed="false">6 meses</button><button data-months="12" aria-pressed="true">12 meses</button><button data-months="60" aria-pressed="false">5 años</button><button data-months="120" aria-pressed="false">10 años</button></div><p id="coverage" class="subtle period-coverage"></p><div class="evolution-layout"><article class="panel"><p id="chart-category" class="eyebrow"></p><h2 id="chart-title" class="evolution-title"></h2><span id="evolution-value" class="evolution-value"></span><span id="chart-unit" class="unit-label"></span><p id="evolution-date" class="evolution-date"></p><div id="chart-area"></div><p id="series-note" class="subtle"></p></article><div><article id="point-details" class="panel" aria-live="polite"></article><h2 id="records-title" class="records-heading"></h2><div id="point-list"></div></div></div></section>
-<section id="citas" class="view" hidden><p class="eyebrow">Tu agenda</p><h1 tabindex="-1">Un espacio<br>para tus consultas.</h1><p id="agenda-asof" class="period"></p><div id="agenda-note" class="agenda-note"></div><div class="agenda-layout"><div><h2 class="agenda-section-title">Próximas citas</h2><div id="upcoming"></div><h2 class="agenda-section-title past-title">Citas pasadas</h2><div id="past"></div></div><article class="panel calendar-panel"><div class="calendar-logo"><span data-nav-icon="calendar"></span></div><h2>También en tu calendario</h2><p>La idea: tener tus citas a mano en MiSalud y Google Calendar.</p><span class="calendar-status">○ Google Calendar · No conectado</span><p class="subtle">Vista previa de una futura integración. No se han enviado eventos ni datos a Google.</p></article></div></section>
-<section id="examenes" class="view" hidden><p class="eyebrow">Tus fuentes</p><h1 tabindex="-1">Los datos empiezan<br>en tus informes.</h1><p id="document-count" class="period"></p><p class="subtle footer-note">Abre un informe para consultar los valores transcritos, sus referencias y la página de origen.</p><div id="document-list" class="footer-note"></div></section>
+<body><div class="app-shell"><header class="topbar"><div class="brand"><span id="brand-mark" class="brand-mark"></span>MiSalud</div><div class="topbar-actions"><span id="privacy-mark" class="privacy"></span><details class="quick-nav"><summary aria-label="Abrir navegación de vistas">Vistas</summary><div class="quick-menu" role="navigation" aria-label="Todas las vistas"><button type="button" data-view="inicio">Inicio / acceso</button><button type="button" data-view="consentimiento">Consentimiento</button><button type="button" data-view="resumen">Resumen</button><button type="button" data-view="documentos">Documentos</button><button type="button" data-view="revision">Revisión</button><button type="button" data-view="evolucion">Evolución</button><button type="button" data-view="citas">Agenda</button><button type="button" data-view="seguimientos">Seguimientos</button><button type="button" data-view="compartidos">Vínculos</button><button type="button" data-view="conexiones">Conexiones</button><button type="button" data-view="auditoria">Auditoría</button><button type="button" data-view="exportacion">Exportar y borrar</button></div></details></div></header><aside class="demo-banner" role="status"><span class="demo-dot" aria-hidden="true"></span><strong>Demostración visual · datos ficticios · las acciones no se ejecutan</strong></aside><div id="demo-toast" class="demo-toast" role="status" aria-live="polite" hidden></div><main class="main">
+<section id="inicio" class="view"><div class="intro"><p class="eyebrow" id="mode-label">Inicio · acceso Google</p><h1 tabindex="-1">Tu salud,<br>a través del tiempo.</h1><p class="period" id="period"></p><div id="summary-counts" class="summary-counts"></div></div><article class="access-strip"><div><span class="eyebrow">Inicio / acceso</span><h2>Entra a tu espacio de salud</h2><p>En el producto real, el acceso comienza con una cuenta Google. Aquí solo recorres el flujo con una cuenta de ejemplo.</p></div><button class="primary-button" data-action="google-access" type="button"><span data-nav-icon="google"></span> Continuar con Google <small>(simulado)</small></button></article><div class="home-layout"><article id="hero" class="hero"></article><div><div class="section-heading"><h2>De un vistazo</h2><p id="metric-count"></p></div><div id="metric-cards" class="metric-cards"></div><button class="text-button" data-view="evolucion" type="button">Explorar todos los indicadores →</button></div></div><div class="home-footer"><p class="subtle">Resultados transcritos para revisar. Los rangos pertenecen a cada laboratorio y no sustituyen una interpretación clínica.</p><button class="text-button" data-view="examenes" type="button">Consultar informes →</button></div></section>
+<section id="consentimiento" class="view" hidden><p class="eyebrow">Antes de empezar</p><h1 tabindex="-1">Crea tu bóveda<br>personal.</h1><p class="period">Un espacio de ejemplo para entender qué se pediría y qué quedaría bajo tu control.</p><div class="split-cards consent-layout"><article class="panel consent-card"><div class="panel-kicker">Paso 1 de 2</div><h2>Consentimiento informado</h2><p>La bóveda real se crea solo después de que entiendas el alcance del almacenamiento local y confirmes que es tu decisión.</p><ul class="check-list"><li><span data-nav-icon="lock"></span> Datos bajo tu control</li><li><span data-nav-icon="shield"></span> Sin interpretación clínica automática</li><li><span data-nav-icon="audit"></span> Registro de acciones para revisar</li></ul><label class="check-row"><input id="consent-demo" type="checkbox"><span>Entiendo que esta es una demostración y autorizo continuar con datos ficticios.</span></label><button id="create-vault" class="primary-button" data-action="create-vault" type="button" disabled>Crear bóveda de ejemplo <span data-nav-icon="arrow"></span></button></article><aside class="panel info-card"><span class="round-icon"><span data-nav-icon="shield"></span></span><h2>Una frontera clara</h2><p>Esta maqueta visual no crea claves, sesiones ni archivos. Solo muestra dónde vivirían esas decisiones.</p><button class="text-button" data-view="inicio" type="button">Volver al acceso <span data-nav-icon="arrow"></span></button></aside></div></section>
+<section id="resumen" class="view" hidden><p class="eyebrow">Tu espacio</p><h1 tabindex="-1">Un resumen claro<br>para empezar.</h1><p id="summary-period" class="period"></p><div class="vault-status"><span class="status-dot"></span><span id="vault-status">Bóveda de ejemplo · simulada</span><span class="example-badge">Solo demo</span></div><div class="summary-grid"><article class="panel summary-card"><span class="round-icon"><span data-nav-icon="file"></span></span><strong id="summary-documents">0</strong><h2>Informes</h2><p>Fuentes disponibles para consultar y revisar.</p><button class="text-button" data-view="examenes" type="button">Ver documentos <span data-nav-icon="arrow"></span></button></article><article class="panel summary-card"><span class="round-icon"><span data-nav-icon="chart"></span></span><strong id="summary-observations">0</strong><h2>Resultados</h2><p>Valores transcritos, siempre con su contexto.</p><button class="text-button" data-view="evolucion" type="button">Ver evolución <span data-nav-icon="arrow"></span></button></article><article class="panel summary-card"><span class="round-icon"><span data-nav-icon="bell"></span></span><strong>1</strong><h2>Seguimiento</h2><p>Una muestra visual pendiente de revisión.</p><button class="text-button" data-view="seguimientos" type="button">Ver seguimiento <span data-nav-icon="arrow"></span></button></article></div><article class="panel next-step"><div><p class="eyebrow">Siguiente paso sugerido</p><h2>Revisa el informe de ejemplo</h2><p>Compara la fuente con los campos antes de considerar un resultado como confirmado.</p></div><button class="primary-button" data-view="revision" type="button">Abrir revisión <span data-nav-icon="arrow"></span></button></article></section>
+<section id="examenes" class="view" hidden><p class="eyebrow">Tus fuentes</p><h1 tabindex="-1">Los datos empiezan<br>en tus informes.</h1><p id="document-count" class="period"></p><div class="upload-layout"><article class="panel upload-card"><span class="round-icon"><span data-nav-icon="folder"></span></span><h2>Carga un informe</h2><p>En el producto real elegirías un archivo local. Esta acción no lee ni envía el archivo.</p><label class="file-picker" for="upload-input"><span>Elegir archivo de ejemplo</span><input id="upload-input" type="file" accept=".pdf,.png,.jpg,.jpeg,.csv,.xlsx"></label><button class="secondary-button" data-action="upload-file" type="button">Simular carga <span data-nav-icon="arrow"></span></button><p class="subtle">Formatos ilustrados: PDF, imagen, CSV o XLSX.</p></article><article class="panel url-card"><span class="round-icon"><span data-nav-icon="external"></span></span><h2>Registra una fuente por URL</h2><p>Solo se conservaría una referencia iniciada por ti. No se visita ninguna dirección en esta demo.</p><label for="source-url">Referencia simulada</label><input id="source-url" type="text" placeholder="portal-ficticio.example/informe-demo" autocomplete="off"><button class="secondary-button" data-action="register-url" type="button">Registrar referencia <span data-nav-icon="arrow"></span></button><p class="subtle">La URL de ejemplo no se guarda ni se consulta.</p></article></div><p class="subtle footer-note">Abre un informe para consultar los valores transcritos, sus referencias y la página de origen.</p><div id="document-list" class="footer-note"></div></section>
+<section id="revision" class="view" hidden><p class="eyebrow">Revisión humana</p><h1 tabindex="-1">Fuente y campos,<br>lado a lado.</h1><p class="period">Nada queda confirmado hasta que una persona compare el documento con la transcripción.</p><div class="review-context panel"><span class="round-icon"><span data-nav-icon="review"></span></span><div><strong id="review-document">Selecciona un informe</strong><span id="review-lab">Fuente no seleccionada</span><span id="review-date">Sin documento</span></div><span class="example-badge">Por confirmar</span></div><div class="review-grid"><article class="panel source-panel"><div class="panel-heading"><div><p class="eyebrow">Fuente visual</p><h2>Página del informe</h2></div><span id="review-page" class="page-count">Sin página</span></div><div id="review-paper" class="paper-sheet" aria-label="Sin informe seleccionado"><p id="review-paper-brand" class="paper-brand">INFORME · VISTA LOCAL</p><div class="paper-line wide"></div><div class="paper-line"></div><dl><div><dt id="review-paper-indicator">—</dt><dd id="review-paper-value">—</dd></div><div><dt>Rango de referencia</dt><dd id="review-paper-reference">—</dd></div><div><dt>Observación del informe</dt><dd id="review-paper-note">Sin observación transcrita.</dd></div></dl><div id="review-paper-stamp" class="paper-stamp">VISTA LOCAL · PENDIENTE</div></div><div id="review-empty" class="empty" hidden role="status"><p id="review-empty-message">Selecciona un informe para revisar su fuente.</p><span>No hay campos que confirmar en este informe.</span></div><p class="subtle">La hoja es una representación para comparar la fuente con la transcripción.</p></article><article class="panel fields-panel"><div class="panel-heading"><div><p class="eyebrow">Campos transcritos</p><h2>Comprueba cada dato</h2></div><span data-nav-icon="check"></span></div><label for="review-indicator">Indicador<input id="review-indicator" type="text" readonly value=""></label><div class="field-row"><label for="review-value">Valor<input id="review-value" type="text" value=""></label><label for="review-unit">Unidad<input id="review-unit" type="text" value=""></label></div><p class="field-label">Referencia del informe</p><p id="review-reference" class="field-value">Sin referencia disponible.</p><p id="review-feedback" class="feedback" aria-live="polite">Todos los campos están por confirmar.</p><div class="button-row"><button class="secondary-button" data-action="mark-reviewed" type="button">Marcar revisado</button><button class="primary-button" data-action="save-correction" type="button">Simular guardar <span data-nav-icon="arrow"></span></button></div><p class="subtle">Guardar no modifica datos en esta demostración.</p></article></div></section>
+<section id="evolucion" class="view" hidden><p class="eyebrow">Tu recorrido</p><h1 tabindex="-1">Cada resultado<br>tiene una historia.</h1><div class="tools"><label><span class="search-label"><span>Buscar indicador</span><span id="search-count"></span></span><input id="search" type="search" placeholder="Nombre, grupo o laboratorio" autocomplete="off"></label><label>Indicador y unidad<select id="indicator"></select></label></div><div class="segmented" role="group" aria-label="Período del gráfico"><button type="button" data-months="3" aria-pressed="false">3 meses</button><button type="button" data-months="6" aria-pressed="false">6 meses</button><button type="button" data-months="12" aria-pressed="true">12 meses</button><button type="button" data-months="60" aria-pressed="false">5 años</button><button type="button" data-months="120" aria-pressed="false">10 años</button></div><p id="coverage" class="subtle period-coverage"></p><div class="evolution-layout"><article class="panel"><p id="chart-category" class="eyebrow"></p><h2 id="chart-title" class="evolution-title"></h2><span id="evolution-value" class="evolution-value"></span><span id="chart-unit" class="unit-label"></span><p id="evolution-date" class="evolution-date"></p><div id="chart-area"></div><p id="series-note" class="subtle"></p></article><div><article id="point-details" class="panel" aria-live="polite"></article><h2 id="records-title" class="records-heading"></h2><div id="point-list"></div></div></div></section>
+<section id="citas" class="view" hidden><p class="eyebrow">Tu agenda</p><h1 tabindex="-1">Un espacio<br>para tus consultas.</h1><p id="agenda-asof" class="period"></p><div id="agenda-note" class="agenda-note"></div><div class="agenda-layout"><div><div class="section-heading"><h2 class="agenda-section-title">Próximas citas</h2><button class="secondary-button compact-button" data-action="add-appointment" type="button">Añadir cita <span data-nav-icon="plus"></span></button></div><div id="upcoming"></div><h2 class="agenda-section-title past-title">Citas pasadas</h2><div id="past"></div></div><article class="panel calendar-panel"><div class="calendar-logo"><span data-nav-icon="calendar"></span></div><h2>También en tu calendario</h2><p>La idea: tener tus citas a mano en MiSalud y una agenda conectada.</p><span class="calendar-status">○ Calendario · No conectado</span><p class="subtle">Vista previa de una futura integración. No se han enviado eventos ni datos a ninguna agenda.</p><button class="text-button" data-action="connect-calendar" type="button">Ver permisos de ejemplo <span data-nav-icon="arrow"></span></button></article></div></section>
+<section id="seguimientos" class="view" hidden><p class="eyebrow">Recordatorios explicables</p><h1 tabindex="-1">Seguimientos<br>sin adivinar.</h1><p class="period">Un seguimiento solo tendría sentido cuando existe una indicación explícita y revisable.</p><div class="followup-grid"><article class="panel followup-card"><div class="card-top"><span class="round-icon"><span data-nav-icon="bell"></span></span><span class="example-badge">Ejemplo</span></div><p class="eyebrow">Indicación de ejemplo</p><h2>Revisar un resultado</h2><p>La maqueta muestra cómo se explicaría una fecha sugerida sin convertirla en consejo médico.</p><dl><div><dt>Estado</dt><dd>Sin decisión clínica</dd></div><div><dt>Evidencia</dt><dd>Texto sintético del informe</dd></div><div><dt>Fecha ilustrativa</dt><dd>Sin fecha programada</dd></div></dl><button class="secondary-button" data-action="add-followup" type="button">Simular seguimiento <span data-nav-icon="arrow"></span></button></article><article class="panel followup-card muted-card"><div class="card-top"><span class="round-icon"><span data-nav-icon="clock"></span></span><span class="status">○ Pendiente de revisión</span></div><p class="eyebrow">Cómo se mostraría</p><h2>Primero la evidencia</h2><ul class="plain-list"><li>Qué documento origina la sugerencia.</li><li>Qué texto o fecha se conserva.</li><li>Qué parte debe confirmar una persona.</li></ul><button class="text-button" data-view="revision" type="button">Ir a revisar fuente <span data-nav-icon="arrow"></span></button></article></div></section>
+<section id="compartidos" class="view" hidden><p class="eyebrow">Control de acceso</p><h1 tabindex="-1">Vínculos<br>compartidos.</h1><p class="period">Una vista de ejemplo de accesos temporales, revocables y acotados a un documento.</p><div class="share-toolbar"><div><strong>0 vínculos activos</strong><span>Los vínculos de esta maqueta no funcionan.</span></div><button class="primary-button" data-action="create-share" type="button">Crear vínculo simulado <span data-nav-icon="plus"></span></button></div><div class="share-list"><article class="panel share-card"><div class="card-top"><span class="round-icon"><span data-nav-icon="share"></span></span><span class="share-state active">Ejemplo · vigente</span></div><h2>Informe ficticio · junio</h2><p>Solo lectura · vence en una fecha de ejemplo · sin datos de contacto.</p><div class="share-meta"><span>Alcance: 1 documento</span><span>Estado: no ejecutable</span></div><div class="button-row"><button class="secondary-button" data-action="copy-share" type="button">Copiar muestra</button><button class="text-button danger-button" data-action="revoke-share" type="button">Revocar</button></div></article><article class="panel share-card revoked"><div class="card-top"><span class="round-icon"><span data-nav-icon="lock"></span></span><span class="share-state">Ejemplo · revocado</span></div><h2>Informe ficticio · enero</h2><p>La tarjeta enseña el estado histórico de un vínculo ya cerrado.</p><div class="share-meta"><span>Alcance: 1 documento</span><span>Estado: revocado</span></div></article></div><p class="subtle footer-note">No se muestran URLs, tokens ni identificadores reales.</p></section>
+<section id="conexiones" class="view" hidden><p class="eyebrow">Integraciones</p><h1 tabindex="-1">Aplicaciones<br>conectadas.</h1><p class="period">Revisa qué pediría cada conexión y el permiso mínimo antes de activarla.</p><div class="connection-grid"><article class="panel connection-card"><div class="card-top"><span class="round-icon"><span data-nav-icon="calendar"></span></span><span class="connection-state">No conectado</span></div><h2>Calendario de ejemplo</h2><p>Mostrar citas próximas en una agenda externa ficticia.</p><fieldset><legend>Permisos ilustrativos</legend><label class="permission-row"><input type="checkbox" checked disabled> Leer disponibilidad</label><label class="permission-row"><input type="checkbox" disabled> Crear eventos</label></fieldset><button class="secondary-button" data-action="connect-calendar" type="button">Simular conexión</button></article><article class="panel connection-card"><div class="card-top"><span class="round-icon"><span data-nav-icon="plug"></span></span><span class="connection-state">No conectado</span></div><h2>Salud del dispositivo</h2><p>Una futura conexión leería solo los datos que tú elijas.</p><fieldset><legend>Permisos ilustrativos</legend><label class="permission-row"><input type="checkbox" checked disabled> Ver pasos de ejemplo</label><label class="permission-row"><input type="checkbox" disabled> Escribir datos</label></fieldset><button class="secondary-button" data-action="connect-health" type="button">Simular conexión</button></article></div><article class="panel permission-summary"><span class="round-icon"><span data-nav-icon="shield"></span></span><div><h2>Principio de mínimo acceso</h2><p>Los permisos se verían antes de conectar y podrían revocarse después. Esta maqueta no solicita ninguno.</p></div><button class="text-button" data-action="permission" type="button">Simular revisión de permisos <span data-nav-icon="arrow"></span></button></article></section>
+<section id="auditoria" class="view" hidden><p class="eyebrow">Trazabilidad</p><h1 tabindex="-1">Una historia de<br>cada acción.</h1><p id="audit-asof" class="period"></p><div class="audit-toolbar"><span>Eventos sintéticos de esta sesión</span><button class="secondary-button compact-button" data-action="filter-audit" type="button">Filtrar ejemplos</button></div><div class="audit-list"><article class="audit-row"><span class="audit-icon"><span data-nav-icon="google"></span></span><div><strong>Acceso Google simulado</strong><span>Solo vista previa · identidad no verificada</span></div><time>09:00</time></article><article class="audit-row"><span class="audit-icon"><span data-nav-icon="shield"></span></span><div><strong>Consentimiento de bóveda mostrado</strong><span>Datos ficticios · sin persistencia</span></div><time>09:01</time></article><article class="audit-row"><span class="audit-icon"><span data-nav-icon="review"></span></span><div><strong>Informe abierto para revisión</strong><span>Fuente sintética · lectura local</span></div><time>09:04</time></article><article class="audit-row"><span class="audit-icon"><span data-nav-icon="share"></span></span><div><strong>Vínculo de ejemplo revocado</strong><span>Sin token ni destinatario real</span></div><time>09:06</time></article></div><p class="subtle footer-note">En el producto real la auditoría no incluiría contenido clínico ni secretos de acceso.</p></section>
+<section id="exportacion" class="view" hidden><p class="eyebrow">Tus datos, tus decisiones</p><h1 tabindex="-1">Exportar, respaldar<br>o eliminar.</h1><p class="period">Tres acciones sensibles que requerirían confirmación explícita en el producto real.</p><div class="export-grid"><article class="panel export-card"><span class="round-icon"><span data-nav-icon="download"></span></span><h2>Exportar una copia</h2><p>Una copia abierta podría incluir informes, resultados y auditoría en un formato elegido.</p><button class="secondary-button" data-action="export" type="button">Simular exportación <span data-nav-icon="arrow"></span></button></article><article class="panel export-card"><span class="round-icon"><span data-nav-icon="archive"></span></span><h2>Crear respaldo local</h2><p id="backup-date">Último respaldo de ejemplo · fecha ficticia</p><p>El respaldo se guardaría fuera de esta página y nunca en esta maqueta.</p><button class="secondary-button" data-action="backup" type="button">Simular respaldo <span data-nav-icon="arrow"></span></button></article><article class="panel export-card danger-card"><span class="round-icon"><span data-nav-icon="trash"></span></span><h2>Eliminar la bóveda</h2><p>La eliminación sería irreversible y exigiría una confirmación adicional. Aquí no borra nada.</p><button class="danger-button" data-action="delete" type="button">Simular eliminación</button></article></div><div class="honest-note"><span class="round-icon"><span data-nav-icon="lock"></span></span><p><strong>Estado de esta demostración:</strong> no se creó ningún archivo, respaldo, vínculo ni cuenta. Puedes recorrer los botones sin riesgo.</p></div></section>
 <noscript>Activa JavaScript para consultar esta vista local interactiva.</noscript></main></div>
-<nav class="bottom-nav" aria-label="Navegación principal"><button data-view="inicio" aria-current="page"><span data-nav-icon="home"></span>Inicio</button><button data-view="evolucion"><span data-nav-icon="chart"></span>Evolución</button><button data-view="citas"><span data-nav-icon="calendar"></span>Citas</button><button data-view="examenes"><span data-nav-icon="file"></span>Exámenes</button></nav><script>(function mountMockup(data, model) {
+<nav class="bottom-nav" aria-label="Navegación principal"><button type="button" data-view="inicio" aria-current="page"><span data-nav-icon="home"></span>Inicio</button><button type="button" data-view="evolucion"><span data-nav-icon="chart"></span>Evolución</button><button type="button" data-view="citas"><span data-nav-icon="calendar"></span>Citas</button><button type="button" data-view="examenes"><span data-nav-icon="file"></span>Exámenes</button></nav><script>(function mountMockup(data, model) {
   const q = (selector) => document.querySelector(selector);
   const esc = (value) =>
     String(value).replace(
@@ -1004,21 +1799,50 @@ summary:focus-visible {
       calendar:
         '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2"/>',
       file: '<path d="M14 3H5v18h14V8zM14 3v6h5M8 13h8m-8 4h6"/>',
+      folder:
+        '<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
       arrow: '<path d="M4 12h16m-6-6 6 6-6 6"/>',
       lock: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>',
+      shield:
+        '<path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/>',
       plus: '<path d="M12 5v14M5 12h14"/>',
+      check: '<path d="m5 12 4 4L19 6"/>',
+      review: '<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5M8 17h3"/>',
+      clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+      bell: '<path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/>',
+      share:
+        '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5m-7.6 6.9 7.6 4.5"/>',
+      plug: '<path d="M9 7V3m6 4V3M7 7h10v4a5 5 0 0 1-10 0zM12 16v5"/>',
+      audit: '<path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+      download: '<path d="M12 3v11m-4-4 4 4 4-4M5 20h14"/>',
+      archive: '<path d="M4 5h16v4H4zM6 9v10h12V9M9 13h6"/>',
+      trash: '<path d="M5 7h14m-9 4v5m4-5v5M9 7V4h6v3m-8 0 1 14h8l1-14"/>',
+      google: '<circle cx="12" cy="12" r="9"/><path d="M12 7a5 5 0 1 1-3.5 8.5M12 12h5"/>',
+      external: '<path d="M14 5h5v5M19 5l-8 8"/><path d="M17 13v5H5V6h5"/>',
     };
     return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.file}</svg>`;
   };
   const allSeries = model.series(data, 120);
-  const state = { key: allSeries[0]?.key ?? '', months: 12, selectedId: null };
-  const source = (o) => data.documents.find((d) => d.id === o.sourceId);
+  const state = {
+    key: allSeries[0]?.key ?? '',
+    months: 12,
+    selectedId: null,
+    reviewDocumentId: null,
+    reviewObservationId: null,
+  };
+  const source = (o) =>
+    data.documents.find((d) => d.id === o.sourceId) ?? {
+      title: 'Informe ficticio',
+      lab: 'Fuente sintética',
+      date: o.date,
+    };
   const status = () =>
     '<span class="status"><span aria-hidden="true">◌</span> Por confirmar</span>';
   const unit = (value) => value || 'Sin unidad';
   const fullDate = (date) => model.formatDate(date);
   const dateShort = (date) => model.formatDate(date, true);
   const num = (value) => model.number(value);
+
   function chart(items, hero = false) {
     if (!items.length)
       return '<div class="empty"><p>No hay resultados en este período.</p><span>Prueba con un período más amplio.</span></div>';
@@ -1047,24 +1871,41 @@ summary:focus-visible {
         : `<text x="56" y="191" text-anchor="start">${esc(fullDate(items[0].date))}</text><text x="320" y="191" text-anchor="end">${esc(fullDate(items[items.length - 1].date))}</text>`;
     return `<svg class="chart" viewBox="0 0 350 210" role="group" aria-label="Evolución de ${esc(items[0].label)} en ${esc(unit(items[0].unit))}. Eje horizontal: fecha; eje vertical: valor.">${ticks}${line}${dots}${dates}</svg>${items.length === 1 ? '<p class="chart-note">Una medición disponible; aún no hay una tendencia.</p>' : '<p class="chart-note">Cada punto es una medición. La línea solo une los registros.</p>'}`;
   }
+
+  function showToast(message) {
+    const toast = q('#demo-toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.hidden = false;
+    toast.classList.add('is-visible');
+  }
+
   function navigate(view, focus = true) {
+    const aliases = { documentos: 'examenes' };
+    const targetView = aliases[view] ?? view;
+    const target = q(`#${targetView}`);
+    if (!target) return;
     document.querySelectorAll('.view').forEach((section) => {
-      section.hidden = section.id !== view;
+      section.hidden = section !== target;
     });
     document.querySelectorAll('[data-view]').forEach((button) => {
-      if (button.dataset.view === view) button.setAttribute('aria-current', 'page');
+      const selected = (aliases[button.dataset.view] ?? button.dataset.view) === targetView;
+      if (selected) button.setAttribute('aria-current', 'page');
       else button.removeAttribute('aria-current');
     });
+    q('.quick-nav')?.removeAttribute('open');
     window.scrollTo({ top: 0, behavior: 'instant' });
-    if (focus) q(`#${view} h1`)?.focus({ preventScroll: true });
+    if (focus) q(`#${targetView} h1`)?.focus({ preventScroll: true });
   }
+
   function openSeries(key) {
     state.key = key;
-    q('#search').value = '';
+    if (q('#search')) q('#search').value = '';
     updateOptions();
     drawEvolution();
     navigate('evolucion');
   }
+
   function renderHome() {
     const results = model.observations(data);
     const documents = model.visibleDocuments(data, 12);
@@ -1076,18 +1917,29 @@ summary:focus-visible {
     q('#period').textContent =
       `${fullDate(model.cutoff(data.asOf, 12, data.periodStart))} — ${fullDate(data.asOf)}`;
     q('#hero').innerHTML = latest
-      ? `<div class="hero-top"><span class="eyebrow">Evolución destacada</span><span class="hero-icon">${icon('chart')}</span></div><h2>${esc(main.label)}</h2><div class="hero-value">${esc(num(latest.value))}<span>${esc(unit(main.unit))}</span></div><p class="hero-source">${esc(source(latest).lab)} · ${esc(fullDate(latest.date))}</p>${chart(main.items, true)}<div class="hero-footer">${status()}<button class="hero-link" data-series="${esc(main.key)}">Ver evolución ${icon('arrow')}</button></div>`
+      ? `<div class="hero-top"><span class="eyebrow">Evolución destacada</span><span class="hero-icon">${icon('chart')}</span></div><h2>${esc(main.label)}</h2><div class="hero-value">${esc(num(latest.value))}<span>${esc(unit(main.unit))}</span></div><p class="hero-source">${esc(source(latest).lab)} · ${esc(fullDate(latest.date))}</p>${chart(main.items, true)}<div class="hero-footer">${status()}<button class="hero-link" data-series="${esc(main.key)}" type="button">Ver evolución ${icon('arrow')}</button></div>`
       : '<h2>Tus resultados aparecerán aquí</h2><p>No hay resultados disponibles en este período.</p>';
     q('#metric-cards').innerHTML =
       homeSeries
         .slice(0, 6)
         .map((group) => {
           const o = group.items.at(-1);
-          return `<button class="metric-card" data-series="${esc(group.key)}"><span class="eyebrow">${esc(group.category)}</span><h3>${esc(group.label)}</h3><span class="metric-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span><span class="metric-meta">${esc(source(o).lab)}<br>${esc(dateShort(o.date))}</span><span class="metric-bottom">${status()}${icon('arrow')}</span></button>`;
+          return `<button class="metric-card" data-series="${esc(group.key)}" type="button"><span class="eyebrow">${esc(group.category)}</span><h3>${esc(group.label)}</h3><span class="metric-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span><span class="metric-meta">${esc(source(o).lab)}<br>${esc(dateShort(o.date))}</span><span class="metric-bottom">${status()}${icon('arrow')}</span></button>`;
         })
         .join('') || '<p class="empty">Sin indicadores disponibles.</p>';
     q('#metric-count').textContent = `${homeSeries.length} series del último año`;
   }
+
+  function renderSummary() {
+    const documents = model.visibleDocuments(data, 120);
+    const observations = model.observations(data, 120);
+    q('#summary-documents').textContent = String(documents.length);
+    q('#summary-observations').textContent = String(observations.length);
+    q('#summary-period').textContent = `${fullDate(data.periodStart)} — ${fullDate(data.asOf)}`;
+    q('#vault-status').textContent =
+      data.mode === 'demo' ? 'Bóveda de ejemplo · simulada' : 'Bóveda local · simulada';
+  }
+
   function updateOptions() {
     const query = q('#search').value.trim().toLocaleLowerCase('es');
     const groups = model.filterSeries(allSeries, data.documents, query);
@@ -1103,6 +1955,7 @@ summary:focus-visible {
     q('#indicator').disabled = !groups.length;
     q('#search-count').textContent = `${groups.length} ${groups.length === 1 ? 'serie' : 'series'}`;
   }
+
   function drawEvolution() {
     const group = allSeries.find((s) => s.key === state.key);
     const items = model
@@ -1132,15 +1985,16 @@ summary:focus-visible {
     q('#point-list').innerHTML = items
       .map(
         (o) =>
-          `<button class="record ${state.selectedId === o.id ? 'selected' : ''}" data-point="${esc(o.id)}" aria-pressed="${state.selectedId === o.id}"><span><strong>${esc(fullDate(o.date))}</strong><small>${esc(source(o).lab)}</small></span><span class="record-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span></button>`,
+          `<button class="record ${state.selectedId === o.id ? 'selected' : ''}" data-point="${esc(o.id)}" aria-pressed="${state.selectedId === o.id}" type="button"><span><strong>${esc(fullDate(o.date))}</strong><small>${esc(source(o).lab)}</small></span><span class="record-value">${esc(num(o.value))}<small>${esc(unit(o.unit))}</small></span></button>`,
       )
       .join('');
     const selected = items.find((o) => o.id === state.selectedId);
     q('#point-details').innerHTML = selected
-      ? `<div class="detail-heading"><span class="eyebrow">Registro seleccionado</span>${status()}</div><h3>${esc(fullDate(selected.date))}</h3><dl><div><dt>Resultado</dt><dd>${esc(num(selected.value))} ${esc(unit(selected.unit))}</dd></div><div><dt>Referencia del informe</dt><dd>${esc(selected.referenceText)}</dd></div><div><dt>Fuente</dt><dd>${esc(source(selected).title)}<br>${esc(source(selected).lab)} · página ${selected.page}</dd></div><div><dt>Fecha registrada</dt><dd>${esc(source(selected).dateLabel ?? 'Fecha del informe')}</dd></div></dl><button class="text-button" data-document="${esc(selected.sourceId)}">Ver resultados de este informe ${icon('arrow')}</button>`
+      ? `<div class="detail-heading"><span class="eyebrow">Registro seleccionado</span>${status()}</div><h3>${esc(fullDate(selected.date))}</h3><dl><div><dt>Resultado</dt><dd>${esc(num(selected.value))} ${esc(unit(selected.unit))}</dd></div><div><dt>Referencia del informe</dt><dd>${esc(selected.referenceText)}</dd></div><div><dt>Fuente</dt><dd>${esc(source(selected).title)}<br>${esc(source(selected).lab)} · página ${selected.page}</dd></div><div><dt>Fecha registrada</dt><dd>${esc(source(selected).dateLabel ?? 'Fecha del informe')}</dd></div></dl><button class="text-button" data-document="${esc(selected.sourceId)}" type="button">Ver resultados de este informe ${icon('arrow')}</button>`
       : '<p class="empty">Selecciona otro indicador o período para ver sus registros.</p>';
     q('#records-title').textContent = `Registros · ${items.length}`;
   }
+
   function renderAppointments() {
     const agenda = model.appointments(data);
     q('#agenda-note').innerHTML = agenda.example
@@ -1161,6 +2015,7 @@ summary:focus-visible {
       '<p class="empty">No hay citas pasadas.</p>';
     q('#agenda-asof').textContent = `Agenda al ${fullDate(data.asOf)}`;
   }
+
   function renderDocuments() {
     const documents = model.visibleDocuments(data, 120);
     q('#document-count').textContent = `${documents.length} informes · fuentes de tus resultados`;
@@ -1168,24 +2023,165 @@ summary:focus-visible {
       documents
         .map((d) => {
           const rows = model.observations(data, 120).filter((o) => o.sourceId === d.id);
-          return `<details class="document" data-document-id="${esc(d.id)}"><summary><span class="document-icon">${icon('file')}</span><span><strong>${esc(d.title)}</strong><small>${esc(d.lab)} · ${esc(fullDate(d.date))}</small><span class="document-meta">${rows.length} resultados · ${esc(d.dateLabel ?? 'Fecha del informe')}</span></span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="document-body"><p class="subtle">Transcripción para el mockup. Revisa los valores con el informe original; todos están por confirmar.</p>${rows.map((o) => `<div class="document-result"><div><h3>${esc(o.label)}</h3><span class="document-value">${esc(num(o.value))} <small>${esc(unit(o.unit))}</small></span></div><p>${esc(o.referenceText)}</p><span class="subtle">Página ${o.page} · Por confirmar</span></div>`).join('') || '<p class="empty">Sin resultados transcritos de este informe.</p>'}</div></details>`;
+          return `<details class="document" data-document-id="${esc(d.id)}"><summary><span class="document-icon">${icon('file')}</span><span><strong>${esc(d.title)}</strong><small>${esc(d.lab)} · ${esc(fullDate(d.date))}</small><span class="document-meta">${rows.length} resultados · ${esc(d.dateLabel ?? 'Fecha del informe')}</span></span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="document-body"><p class="subtle">Transcripción para el mockup. Revisa los valores con el informe original; todos están por confirmar.</p>${rows.map((o) => `<div class="document-result"><div><h3>${esc(o.label)}</h3><span class="document-value">${esc(num(o.value))} <small>${esc(unit(o.unit))}</small></span></div><p>${esc(o.referenceText)}</p><span class="subtle">Página ${o.page} · Por confirmar</span></div>`).join('') || '<p class="empty">Sin resultados transcritos de este informe.</p>'}<button class="text-button" data-action="open-review" data-document="${esc(d.id)}" type="button">Abrir revisión lado a lado ${icon('arrow')}</button></div></details>`;
         })
         .join('') || '<p class="empty">No hay informes en este período.</p>';
   }
+
+  function renderReview(documentId) {
+    state.reviewDocumentId = documentId || null;
+    const sourceDocument =
+      data.documents.find((item) => item.id === state.reviewDocumentId) ?? null;
+    const observation = sourceDocument
+      ? model.observationForDocument(data, sourceDocument.id, 120)
+      : null;
+    state.reviewObservationId = observation?.id ?? null;
+
+    q('#review-document').textContent = sourceDocument?.title ?? 'Selecciona un informe';
+    q('#review-lab').textContent = sourceDocument?.lab ?? 'Fuente no seleccionada';
+    q('#review-date').textContent = sourceDocument
+      ? fullDate(sourceDocument.date)
+      : 'Sin documento';
+    q('#review-page').textContent = observation ? `Página ${observation.page}` : 'Sin página';
+
+    const paper = q('#review-paper');
+    const empty = q('#review-empty');
+    if (paper) {
+      paper.hidden = !observation;
+      paper.setAttribute(
+        'aria-label',
+        sourceDocument ? `Fragmento de ${sourceDocument.title}` : 'Sin informe seleccionado',
+      );
+    }
+    if (empty) {
+      empty.hidden = Boolean(observation);
+      q('#review-empty-message').textContent = sourceDocument
+        ? 'Este informe no tiene observaciones transcritas.'
+        : 'Selecciona un informe para revisar su fuente.';
+    }
+
+    q('#review-paper-brand').textContent =
+      data.mode === 'demo' ? 'INFORME DE EJEMPLO · MUESTRA VISUAL' : 'INFORME · VISTA LOCAL';
+    q('#review-paper-indicator').textContent = observation?.label ?? '—';
+    q('#review-paper-value').textContent = observation
+      ? `${num(observation.value)} ${unit(observation.unit)}`
+      : '—';
+    q('#review-paper-reference').textContent = observation?.referenceText ?? '—';
+    q('#review-paper-note').textContent = observation
+      ? 'Resultado transcrito; pendiente de confirmación.'
+      : 'Sin observación transcrita.';
+    q('#review-paper-stamp').textContent =
+      data.mode === 'demo' ? 'SIN VALIDEZ CLÍNICA' : 'VISTA LOCAL · PENDIENTE';
+
+    q('#review-indicator').value = observation?.label ?? '';
+    q('#review-value').value = observation ? String(observation.value) : '';
+    q('#review-unit').value = observation ? unit(observation.unit) : '';
+    q('#review-reference').textContent = observation?.referenceText ?? 'Sin referencia disponible.';
+    q('#review-feedback').textContent = 'Todos los campos están por confirmar.';
+    document
+      .querySelectorAll(
+        '#revision [data-action="mark-reviewed"], #revision [data-action="save-correction"]',
+      )
+      .forEach((button) => {
+        button.disabled = !observation;
+      });
+  }
+
+  function renderDynamicLabels() {
+    q('#audit-asof').textContent = `Actividad simulada al ${fullDate(data.asOf)}`;
+    q('#backup-date').textContent = `Último respaldo de ejemplo · ${fullDate(data.asOf)}`;
+    const initialDocument = model.visibleDocuments(data, 120)[0]?.id ?? null;
+    renderReview(initialDocument);
+  }
+
+  function simulateAction(action, element) {
+    if (action === 'google-access') {
+      showToast('Acceso Google simulado. No se abrió ninguna cuenta.');
+      navigate('consentimiento');
+      return;
+    }
+    if (action === 'create-vault') {
+      if (!q('#consent-demo')?.checked) {
+        showToast('Marca el consentimiento de ejemplo para continuar.');
+        return;
+      }
+      showToast('Bóveda de ejemplo preparada. Nada se guardó en un servidor.');
+      navigate('resumen');
+      return;
+    }
+    if (action === 'upload-file') {
+      const input = q('#upload-input');
+      showToast(
+        input?.files?.length
+          ? 'Archivo seleccionado para la demo. No se subió ni se leyó su contenido.'
+          : 'Selecciona un archivo de ejemplo para simular la carga; no se enviará.',
+      );
+      return;
+    }
+    if (action === 'register-url') {
+      showToast('Referencia de URL registrada solo como ejemplo. No se visitó ninguna dirección.');
+      return;
+    }
+    if (action === 'open-review') {
+      renderReview(element?.dataset.document ?? null);
+      showToast(
+        data.mode === 'demo'
+          ? 'Revisión de ejemplo abierta. Los campos no se guardan.'
+          : 'Revisión abierta. Los campos no se guardan.',
+      );
+      navigate('revision');
+      return;
+    }
+    if (action === 'save-correction') {
+      q('#review-feedback').textContent =
+        'Simulación completada: la corrección quedaría pendiente de confirmación humana.';
+      showToast('Corrección simulada. No cambió ningún registro.');
+      return;
+    }
+    const messages = {
+      'mark-reviewed': 'Marcado de revisión simulado. No se cambió el estado real.',
+      'add-appointment': 'Nueva cita simulada. No se creó ningún evento.',
+      'add-followup': 'Seguimiento simulado. No se emitió una recomendación clínica.',
+      'create-share': 'Vínculo compartido simulado. No se generó un acceso.',
+      'copy-share': 'Copia simulada. No se puso ningún vínculo en el portapapeles.',
+      'revoke-share': 'Revocación simulada. No había un vínculo real que revocar.',
+      'connect-calendar': 'Conexión de calendario simulada. No se pidió ningún permiso.',
+      'connect-health': 'Conexión de salud simulada. No se leyó ningún dato.',
+      permission: 'Permiso simulado. No cambió el acceso de ninguna aplicación.',
+      'filter-audit': 'Filtro de auditoría simulado. La actividad no se modificó.',
+      export: 'Exportación simulada. No se creó ni descargó ningún archivo.',
+      backup: 'Respaldo simulado. No se copió ninguna bóveda.',
+      delete: 'Eliminación simulada. No se borró ningún dato.',
+      login: 'Inicio de sesión simulado. Esta maqueta no autentica personas.',
+    };
+    showToast(messages[action] ?? 'Acción simulada. No se ejecutó ninguna operación.');
+  }
+
   q('#brand-mark').innerHTML = icon('plus');
   q('#privacy-mark').innerHTML =
-    data.mode === 'demo' ? 'Demo ficticia' : `${icon('lock')} Vista local`;
+    data.mode === 'demo' ? `${icon('shield')} Demo ficticia` : `${icon('lock')} Vista local`;
   q('#mode-label').textContent =
     data.mode === 'demo' ? 'Demostración con datos ficticios' : 'Tu espacio personal';
   document.querySelectorAll('[data-nav-icon]').forEach((node) => {
     node.innerHTML = icon(node.dataset.navIcon);
   });
   renderHome();
+  renderSummary();
   updateOptions();
   drawEvolution();
   renderAppointments();
   renderDocuments();
+  renderDynamicLabels();
+  q('#consent-demo')?.addEventListener('change', (event) => {
+    const button = q('#create-vault');
+    if (button) button.disabled = !event.target.checked;
+  });
   document.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-action]');
+    if (action) {
+      simulateAction(action.dataset.action, action);
+      if (action.dataset.action === 'open-review') return;
+    }
     const nav = event.target.closest('[data-view]');
     if (nav) navigate(nav.dataset.view);
     const series = event.target.closest('[data-series]');
@@ -1193,8 +2189,8 @@ summary:focus-visible {
     const period = event.target.closest('[data-months]');
     if (period) {
       state.months = Number(period.dataset.months);
-      document.querySelectorAll('[data-months]').forEach((b) => {
-        b.setAttribute('aria-pressed', String(b === period));
+      document.querySelectorAll('[data-months]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button === period));
       });
       drawEvolution();
     }
@@ -1207,7 +2203,7 @@ summary:focus-visible {
     if (documentButton) {
       navigate('examenes');
       const target = [...document.querySelectorAll('[data-document-id]')].find(
-        (d) => d.dataset.documentId === documentButton.dataset.document,
+        (item) => item.dataset.documentId === documentButton.dataset.document,
       );
       if (target) {
         target.open = true;
@@ -1223,11 +2219,11 @@ summary:focus-visible {
       drawEvolution();
     }
   });
-  q('#search').addEventListener('input', () => {
+  q('#search')?.addEventListener('input', () => {
     updateOptions();
     drawEvolution();
   });
-  q('#indicator').addEventListener('change', (event) => {
+  q('#indicator')?.addEventListener('change', (event) => {
     state.key = event.target.value;
     state.selectedId = null;
     drawEvolution();
@@ -1269,6 +2265,13 @@ summary:focus-visible {
     return data.observations
       .filter((o) => o.date >= from && o.date <= data.asOf)
       .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  }
+  function observationForDocument(data, documentId, months = 120) {
+    return (
+      observations(data, months)
+        .filter((o) => o.sourceId === documentId)
+        .at(-1) ?? null
+    );
   }
   function series(data, months = 12) {
     const groups = new Map();
@@ -1371,6 +2374,7 @@ summary:focus-visible {
     seriesKey,
     cutoff,
     observations,
+    observationForDocument,
     series,
     filterSeries,
     visibleDocuments,
