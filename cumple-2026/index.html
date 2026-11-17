@@ -166,18 +166,48 @@ h2.section {
 }
 .item h3 { margin: 0 0 .25rem; font-size: 1rem; line-height: 1.3; }
 .item p { margin: 0; font-size: .875rem; color: var(--muted); }
-.item .meta {
-  margin-top: auto;
-  padding-top: .625rem;
+.item .tag {
+  margin-top: .5rem;
   font-size: .8125rem;
   font-weight: 700;
   color: var(--accent);
 }
-a.item:hover { border-color: var(--accent); }
-.links { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
-.links a { color: var(--accent); text-decoration: none; padding: .25rem 0; }
+.links {
+  margin-top: auto;
+  padding-top: .75rem;
+  display: grid;
+  gap: .375rem;
+}
+.store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+}
+.store:hover { filter: brightness(.95); }
+.store.ml { background: #ffe600; color: #2d3277; }
+.store.jumbo { background: #2e8b3a; }
+.store.cv { background: #00733f; }
+.store.sb { background: #1d3f8f; }
+.store.nes { background: #1a1a1a; }
+.store.lindt { background: #00315e; }
+.store.fete { background: #7a1f2b; }
+.store.entre { background: #b3261e; }
+.store.prieto { background: #5a3825; }
+.store.vars { background: #8c1d2f; }
+.store.adagio { background: #1f5c5a; }
+.store.sub { background: #111; }
+.store.mon { background: #4a4a4a; }
 .btns { display: grid; gap: .5rem; }
-.btn.alt { background: var(--surface); color: var(--accent); border: 2px solid var(--accent); }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 footer {
@@ -205,8 +235,8 @@ footer {
       <h2 id="top">Cápsulas Lavazza Maestro Intenso</h2>
       <p>Compatibles con Nespresso. Vienen en cajas de 10: mientras más cajas, mejor ☕ En el Jumbo suelen estar más baratas.</p>
       <div class="btns">
-        <a class="btn" href="https://www.jumbo.cl/capsula-espresso-intenso-lavazza-57-g-1971950/p" target="_blank" rel="noopener">Ver en Jumbo</a>
-        <a class="btn alt" href="https://www.mercadolibre.cl/cafe-espresso-maestro-intenso-10-capsulas-lavazza/p/MLC37210050" target="_blank" rel="noopener">Ver en Mercado Libre</a>
+        <a class="btn store jumbo" href="https://www.jumbo.cl/capsula-espresso-intenso-lavazza-57-g-1971950/p" target="_blank" rel="noopener">Jumbo</a>
+        <a class="btn store ml" href="https://www.mercadolibre.cl/cafe-espresso-maestro-intenso-10-capsulas-lavazza/p/MLC37210050" target="_blank" rel="noopener">Mercado Libre</a>
       </div>
     </div>
   </section>
@@ -219,7 +249,7 @@ footer {
         <div class="body">
           <h3>Lavazza sin cafeína</h3>
           <p>Espresso Maestro Dek, para Nespresso. Caja de 10. Ojo: no las de Lavazza Blue.</p>
-          <span class="meta links"><a href="https://www.jumbo.cl/capsula-espresso-descaf-lavazza-58-g-1972044/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.mercadolibre.cl/cafe-en-capsulas-lavazza-espresso-descafeinado-10-un/up/MLCU5869224773" target="_blank" rel="noopener">Mercado Libre →</a></span>
+          <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/capsula-espresso-descaf-lavazza-58-g-1972044/p" target="_blank" rel="noopener">Jumbo</a><a class="store ml" href="https://www.mercadolibre.cl/cafe-en-capsulas-lavazza-espresso-descafeinado-10-un/up/MLCU5869224773" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
     </li>
@@ -229,79 +259,79 @@ footer {
         <div class="body">
           <h3>Starbucks by Nespresso</h3>
           <p>Hechas para Nespresso. Caja de 10, por ejemplo Blonde Espresso Roast.</p>
-          <span class="meta links"><a href="https://www.jumbo.cl/caps-starbucks-nespresso-blonde-espr-53g-1957068/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.mercadolibre.cl/capsula-de-cafe-starbucks-by-nespresso-cafe-blonded-espresso-roasted-con-10-capsulas-de-53g/p/MLC17465270" target="_blank" rel="noopener">Mercado Libre →</a></span>
+          <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/caps-starbucks-nespresso-blonde-espr-53g-1957068/p" target="_blank" rel="noopener">Jumbo</a><a class="store ml" href="https://www.mercadolibre.cl/capsula-de-cafe-starbucks-by-nespresso-cafe-blonded-espresso-roasted-con-10-capsulas-de-53g/p/MLC17465270" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
     </li>
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/capsulas-de-cafe-martin-pescador-puelo-coffee-roasters/p/MLC70152698" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/capsulas-puelo.webp" width="207" height="500" alt="Caja de cápsulas Puelo Coffee Roasters Martín Pescador" loading="lazy"></div>
         <div class="body">
           <h3>Puelo Coffee Roasters</h3>
           <p>Café de especialidad chileno para Nespresso. Caja de 10, por ejemplo Martín Pescador.</p>
-          <span class="meta">Mercado Libre →</span>
+          <span class="links"><a class="store ml" href="https://www.mercadolibre.cl/capsulas-de-cafe-martin-pescador-puelo-coffee-roasters/p/MLC70152698" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/capsulas-real-coffee-sumatra-compatible-con-nespresso/p/MLC36483584" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/capsulas-realcoffee.webp" width="500" height="500" alt="Cápsulas Real Coffee Espresso Sumatra" loading="lazy"></div>
         <div class="body">
           <h3>Real Coffee</h3>
           <p>Cápsulas de aluminio para Nespresso. Caja de 10, por ejemplo Sumatra.</p>
-          <span class="meta">Mercado Libre →</span>
+          <span class="links"><a class="store ml" href="https://www.mercadolibre.cl/capsulas-real-coffee-sumatra-compatible-con-nespresso/p/MLC36483584" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.nespresso.com/cl/es/order/capsules/original/calendario-de-adviento-swarovski-ol" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/calendario.webp" width="600" height="600" alt="Calendario de adviento Nespresso x Swarovski" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento Nespresso</h3>
           <p>Edición Swarovski, línea Original.</p>
-          <span class="meta">Nespresso →</span>
+          <span class="links"><a class="store nes" href="https://www.nespresso.com/cl/es/order/capsules/original/calendario-de-adviento-swarovski-ol" target="_blank" rel="noopener">Nespresso</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://cl.lafetechocolat.com/products/calendario-de-adviento-navidad-260-g" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/calendario-lafete.webp" width="600" height="600" alt="Calendario de adviento La Fête con forma de carrusel" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento La Fête</h3>
           <p>Carrusel con 24 bombones, 250 g.</p>
-          <span class="meta">La Fête →</span>
+          <span class="links"><a class="store fete" href="https://cl.lafetechocolat.com/products/calendario-de-adviento-navidad-260-g" target="_blank" rel="noopener">La Fête</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.entrelagos.cl/pedir/FbDrhKPNNkBHFSthT/824-calendario-de-adviento-entrelagos-340-g" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo cover"><img src="img/calendario-entrelagos.webp" width="600" height="600" alt="Calendario de adviento Entrelagos con cajoncitos numerados" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento Entrelagos</h3>
           <p>Chocolates, bombones y grageas, 340 g.</p>
-          <span class="meta">Entrelagos →</span>
+          <span class="links"><a class="store entre" href="https://www.entrelagos.cl/pedir/FbDrhKPNNkBHFSthT/824-calendario-de-adviento-entrelagos-340-g" target="_blank" rel="noopener">Entrelagos</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://prietochocolates.cl/product/caja-de-adviento-bombones/" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo cover"><img src="img/calendario-prieto.webp" width="600" height="600" alt="Caja de adviento Prieto con 24 chocolates numerados" loading="lazy"></div>
         <div class="body">
           <h3>Caja de adviento Prieto</h3>
           <p>Un chocolate distinto por día. Se reserva; no despachan a regiones.</p>
-          <span class="meta">Prieto →</span>
+          <span class="links"><a class="store prieto" href="https://prietochocolates.cl/product/caja-de-adviento-bombones/" target="_blank" rel="noopener">Prieto</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.varsovienne.cl/default/calendario-de-adviento.html" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/calendario-varsovienne.webp" width="600" height="600" alt="Calendario de adviento Varsovienne en forma de libro" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento Varsovienne</h3>
           <p>Bombones, calugas, grageas y alfajores, 363 g.</p>
-          <span class="meta">Varsovienne →</span>
+          <span class="links"><a class="store vars" href="https://www.varsovienne.cl/default/calendario-de-adviento.html" target="_blank" rel="noopener">Varsovienne</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
       <div class="item">
@@ -309,19 +339,19 @@ footer {
         <div class="body">
           <h3>Calendario de adviento Lindt</h3>
           <p>En lindt.cl el Magic 115 g está sin stock por ahora; en el Jumbo hay uno de 170 g.</p>
-          <span class="meta links"><a href="https://www.jumbo.cl/calendario-advient-2096207/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.lindt.cl/calendario-de-adviento-lindt-magic-115g-430793/p" target="_blank" rel="noopener">Lindt →</a></span>
+          <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/calendario-advient-2096207/p" target="_blank" rel="noopener">Jumbo</a><a class="store lindt" href="https://www.lindt.cl/calendario-de-adviento-lindt-magic-115g-430793/p" target="_blank" rel="noopener">Lindt</a></span>
         </div>
       </div>
     </li>
     <li>
-      <a class="item" href="https://adagio.cl/products/calendario-de-adviento" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/calendario-te-adagio.webp" width="600" height="600" alt="Calendario de adviento de té Adagio con taza" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento de té</h3>
           <p>Adagio Teas: 24 bolsitas de 12 tés distintos, con taza.</p>
-          <span class="meta">Adagio →</span>
+          <span class="links"><a class="store adagio" href="https://adagio.cl/products/calendario-de-adviento" target="_blank" rel="noopener">Adagio</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
       <div class="item">
@@ -329,7 +359,7 @@ footer {
         <div class="body">
           <h3>Limpiador facial</h3>
           <p>Bioderma Sébium Gel Moussant, 500 ml.</p>
-          <span class="meta links"><a href="https://www.cruzverde.cl/sebium-gel-moussant-gel-limpiador-suave-para-pieles-grasas-mixtas-o-con-tendencia-acneica-500-ml/393020.html" target="_blank" rel="noopener">Cruz Verde →</a><a href="https://www.mercadolibre.cl/gel-moussant-bioderma-sebium-pieles-grasas-acne-500-ml/p/MLC19766658" target="_blank" rel="noopener">Mercado Libre →</a></span>
+          <span class="links"><a class="store cv" href="https://www.cruzverde.cl/sebium-gel-moussant-gel-limpiador-suave-para-pieles-grasas-mixtas-o-con-tendencia-acneica-500-ml/393020.html" target="_blank" rel="noopener">Cruz Verde</a><a class="store ml" href="https://www.mercadolibre.cl/gel-moussant-bioderma-sebium-pieles-grasas-acne-500-ml/p/MLC19766658" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
     </li>
@@ -339,19 +369,20 @@ footer {
         <div class="body">
           <h3>Bloqueador solar</h3>
           <p>Uriage Bariésun Stick invisible SPF 50, 18 g.</p>
-          <span class="meta links"><a href="https://www.cruzverde.cl/protector-solar-stick-invisible-spf50-bariesun-18g/575767.html" target="_blank" rel="noopener">Cruz Verde →</a><a href="https://salcobrand.cl/products/uriage-bariesun-spf50-invisible-stick-18g" target="_blank" rel="noopener">Salcobrand →</a><a href="https://www.mercadolibre.cl/uriage-bariesun-stick-solar-invisible-spf-50-en-barra-18gr-producto-viral-glow-on-the-go/p/MLC47354093" target="_blank" rel="noopener">Mercado Libre →</a></span>
+          <span class="links"><a class="store cv" href="https://www.cruzverde.cl/protector-solar-stick-invisible-spf50-bariesun-18g/575767.html" target="_blank" rel="noopener">Cruz Verde</a><a class="store sb" href="https://salcobrand.cl/products/uriage-bariesun-spf50-invisible-stick-18g" target="_blank" rel="noopener">Salcobrand</a><a class="store ml" href="https://www.mercadolibre.cl/uriage-bariesun-stick-solar-invisible-spf-50-en-barra-18gr-producto-viral-glow-on-the-go/p/MLC47354093" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
     </li>
     <li>
-      <a class="item" href="https://suburbano.cl/products/polera-completo-bauhaus" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/polera-completo.webp" width="600" height="565" alt="Polera negra con un completo italiano estilo Bauhaus" loading="lazy"></div>
         <div class="body">
           <h3>Polera Completo Italiano</h3>
           <p>Suburbano, colección Chilean Bauhaus.</p>
-          <span class="meta">Talla XXL (2XL), si no XL · Suburbano →</span>
+          <span class="tag">Talla XXL (2XL), si no XL</span>
+          <span class="links"><a class="store sub" href="https://suburbano.cl/products/polera-completo-bauhaus" target="_blank" rel="noopener">Suburbano</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
       <div class="item">
@@ -359,7 +390,7 @@ footer {
         <div class="body">
           <h3>Suéter</h3>
           <p>Idealmente negro. Me gustan los de H&amp;M.</p>
-          <span class="meta">Talla XXL</span>
+          <span class="tag">Talla XXL</span>
         </div>
       </div>
     </li>
@@ -369,19 +400,20 @@ footer {
         <div class="body">
           <h3>Calcetines</h3>
           <p>De hilo o algodón.</p>
-          <span class="meta">Talla 43</span>
+          <span class="tag">Talla 43</span>
         </div>
       </div>
     </li>
     <li>
-      <a class="item" href="https://monarch.cl/products/tais-2-unidades-boxer-medio-liso-negro-happy-boolls" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/boxer.webp" width="600" height="600" alt="Bóxer medio liso negro de referencia" loading="lazy"></div>
         <div class="body">
           <h3>Bóxers</h3>
           <p>De buena marca, como estos de referencia (puede ser otra marca).</p>
-          <span class="meta">Talla XL · Ver referencia →</span>
+          <span class="tag">Talla XL</span>
+          <span class="links"><a class="store mon" href="https://monarch.cl/products/tais-2-unidades-boxer-medio-liso-negro-happy-boolls" target="_blank" rel="noopener">Ver en Monarch</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
       <div class="item">
@@ -389,7 +421,7 @@ footer {
         <div class="body">
           <h3>Chocolate 85 %</h3>
           <p>Chocolate amargo, 85 % cacao. Por ejemplo, Lindt Excellence o Sarotti.</p>
-          <span class="meta links"><a href="https://www.jumbo.cl/chocolate-extra-fino-lindt-barra-100-g-dark-amargo-85-cacao/p" target="_blank" rel="noopener">Lindt en Jumbo →</a><a href="https://www.jumbo.cl/choco-sarotti-amargo-85-10un-100gr-2002817/p" target="_blank" rel="noopener">Sarotti en Jumbo →</a></span>
+          <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/chocolate-extra-fino-lindt-barra-100-g-dark-amargo-85-cacao/p" target="_blank" rel="noopener">Jumbo: Lindt</a><a class="store jumbo" href="https://www.jumbo.cl/choco-sarotti-amargo-85-10un-100gr-2002817/p" target="_blank" rel="noopener">Jumbo: Sarotti</a></span>
         </div>
       </div>
     </li>
