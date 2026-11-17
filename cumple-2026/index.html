@@ -174,6 +174,10 @@ h2.section {
   color: var(--accent);
 }
 a.item:hover { border-color: var(--accent); }
+.links { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
+.links a { color: var(--accent); text-decoration: none; padding: .25rem 0; }
+.btns { display: grid; gap: .5rem; }
+.btn.alt { background: var(--surface); color: var(--accent); border: 2px solid var(--accent); }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 footer {
@@ -199,59 +203,52 @@ footer {
     <div class="body">
       <span class="badge">⭐ Lo que más quiero</span>
       <h2 id="top">Cápsulas Lavazza Maestro Intenso</h2>
-      <p>Compatibles con Nespresso. Vienen en cajas de 10: mientras más cajas, mejor ☕ Dato: en el Jumbo están más baratas.</p>
-      <a class="btn" href="https://www.mercadolibre.cl/cafe-espresso-maestro-intenso-10-capsulas-lavazza/p/MLC37210050" target="_blank" rel="noopener">Ver en Mercado Libre</a>
+      <p>Compatibles con Nespresso. Vienen en cajas de 10: mientras más cajas, mejor ☕ En el Jumbo suelen estar más baratas.</p>
+      <div class="btns">
+        <a class="btn" href="https://www.jumbo.cl/capsula-espresso-intenso-lavazza-57-g-1971950/p" target="_blank" rel="noopener">Ver en Jumbo</a>
+        <a class="btn alt" href="https://www.mercadolibre.cl/cafe-espresso-maestro-intenso-10-capsulas-lavazza/p/MLC37210050" target="_blank" rel="noopener">Ver en Mercado Libre</a>
+      </div>
     </div>
   </section>
 
   <h2 class="section">Otras ideas</h2>
   <ul class="grid">
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/cafe-en-capsulas-lavazza-espresso-descafeinado-10-un/up/MLCU5869224773" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/lavazza-dek.webp" width="258" height="500" alt="Caja de cápsulas Lavazza Espresso Maestro Dek" loading="lazy"></div>
         <div class="body">
           <h3>Lavazza sin cafeína</h3>
-          <p>Espresso Maestro Dek, para Nespresso. Ojo: no las de Lavazza Blue. Más baratas en el Jumbo.</p>
-          <span class="meta">Mercado Libre →</span>
+          <p>Espresso Maestro Dek, para Nespresso. Caja de 10. Ojo: no las de Lavazza Blue.</p>
+          <span class="meta links"><a href="https://www.jumbo.cl/capsula-espresso-descaf-lavazza-58-g-1972044/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.mercadolibre.cl/cafe-en-capsulas-lavazza-espresso-descafeinado-10-un/up/MLCU5869224773" target="_blank" rel="noopener">Mercado Libre →</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/capsula-de-cafe-starbucks-by-nespresso-cafe-blonded-espresso-roasted-con-10-capsulas-de-53g/p/MLC17465270" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/capsulas-starbucks.webp" width="81" height="500" alt="Caja de cápsulas Starbucks Blonde Espresso Roast by Nespresso" loading="lazy"></div>
         <div class="body">
           <h3>Starbucks by Nespresso</h3>
-          <p>Hechas para Nespresso. Por ejemplo, Blonde Espresso Roast.</p>
-          <span class="meta">Mercado Libre →</span>
+          <p>Hechas para Nespresso. Caja de 10, por ejemplo Blonde Espresso Roast.</p>
+          <span class="meta links"><a href="https://www.jumbo.cl/caps-starbucks-nespresso-blonde-espr-53g-1957068/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.mercadolibre.cl/capsula-de-cafe-starbucks-by-nespresso-cafe-blonded-espresso-roasted-con-10-capsulas-de-53g/p/MLC17465270" target="_blank" rel="noopener">Mercado Libre →</a></span>
         </div>
-      </a>
+      </div>
     </li>
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/capsulas-cafe-compatibles-nespresso-pack-favoritos-50-unidades-cafe-senor-k/p/MLC54638614" target="_blank" rel="noopener">
-        <div class="photo"><img src="img/capsulas-senork.webp" width="462" height="500" alt="Pack de cápsulas Café Señor K" loading="lazy"></div>
-        <div class="body">
-          <h3>Café Señor K</h3>
-          <p>Tostaduría chilena, compatibles con Nespresso. Pack de 50.</p>
-          <span class="meta">Mercado Libre →</span>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a class="item" href="https://www.mercadolibre.cl/pack-50-capsulas-puelo-coffee-roasters-cafe-de-especialidad-coffee-blend-capsula-nespresso/p/MLC74752229" target="_blank" rel="noopener">
-        <div class="photo"><img src="img/capsulas-puelo.webp" width="439" height="500" alt="Pack de cápsulas Puelo Coffee Roasters" loading="lazy"></div>
+      <a class="item" href="https://www.mercadolibre.cl/capsulas-de-cafe-martin-pescador-puelo-coffee-roasters/p/MLC70152698" target="_blank" rel="noopener">
+        <div class="photo"><img src="img/capsulas-puelo.webp" width="207" height="500" alt="Caja de cápsulas Puelo Coffee Roasters Martín Pescador" loading="lazy"></div>
         <div class="body">
           <h3>Puelo Coffee Roasters</h3>
-          <p>Café de especialidad chileno, compatibles con Nespresso. Pack de 50.</p>
+          <p>Café de especialidad chileno para Nespresso. Caja de 10, por ejemplo Martín Pescador.</p>
           <span class="meta">Mercado Libre →</span>
         </div>
       </a>
     </li>
     <li>
-      <a class="item" href="https://www.mercadolibre.cl/pack-80-capsulas-compatibles-real-coffee-cafe-para-nespresso/p/MLC37245450" target="_blank" rel="noopener">
-        <div class="photo"><img src="img/capsulas-realcoffee.webp" width="500" height="478" alt="Pack de 80 cápsulas Real Coffee" loading="lazy"></div>
+      <a class="item" href="https://www.mercadolibre.cl/capsulas-real-coffee-sumatra-compatible-con-nespresso/p/MLC36483584" target="_blank" rel="noopener">
+        <div class="photo"><img src="img/capsulas-realcoffee.webp" width="500" height="500" alt="Cápsulas Real Coffee Espresso Sumatra" loading="lazy"></div>
         <div class="body">
           <h3>Real Coffee</h3>
-          <p>Cápsulas de aluminio compatibles con Nespresso. Pack de 80.</p>
+          <p>Cápsulas de aluminio para Nespresso. Caja de 10, por ejemplo Sumatra.</p>
           <span class="meta">Mercado Libre →</span>
         </div>
       </a>
@@ -307,12 +304,22 @@ footer {
       </a>
     </li>
     <li>
-      <a class="item" href="https://www.lindt.cl/calendario-de-adviento-lindt-magic-115g-430793/p" target="_blank" rel="noopener">
+      <div class="item">
         <div class="photo"><img src="img/calendario-lindt.webp" width="600" height="600" alt="Calendario de adviento Lindt Magic" loading="lazy"></div>
         <div class="body">
           <h3>Calendario de adviento Lindt</h3>
-          <p>Lindt Magic, 115 g. Si no hay en lindt.cl, también está en el Jumbo.</p>
-          <span class="meta">Lindt →</span>
+          <p>En lindt.cl el Magic 115 g está sin stock por ahora; en el Jumbo hay uno de 170 g.</p>
+          <span class="meta links"><a href="https://www.jumbo.cl/calendario-advient-2096207/p" target="_blank" rel="noopener">Jumbo →</a><a href="https://www.lindt.cl/calendario-de-adviento-lindt-magic-115g-430793/p" target="_blank" rel="noopener">Lindt →</a></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a class="item" href="https://adagio.cl/products/calendario-de-adviento" target="_blank" rel="noopener">
+        <div class="photo"><img src="img/calendario-te-adagio.webp" width="600" height="600" alt="Calendario de adviento de té Adagio con taza" loading="lazy"></div>
+        <div class="body">
+          <h3>Calendario de adviento de té</h3>
+          <p>Adagio Teas: 24 bolsitas de 12 tés distintos, con taza.</p>
+          <span class="meta">Adagio →</span>
         </div>
       </a>
     </li>
@@ -381,7 +388,8 @@ footer {
         <div class="photo emoji" aria-hidden="true">🍫</div>
         <div class="body">
           <h3>Chocolate 85 %</h3>
-          <p>Chocolate amargo, 85 % cacao.</p>
+          <p>Chocolate amargo, 85 % cacao. Por ejemplo, Lindt Excellence o Sarotti.</p>
+          <span class="meta links"><a href="https://www.jumbo.cl/chocolate-extra-fino-lindt-barra-100-g-dark-amargo-85-cacao/p" target="_blank" rel="noopener">Lindt en Jumbo →</a><a href="https://www.jumbo.cl/choco-sarotti-amargo-85-10un-100gr-2002817/p" target="_blank" rel="noopener">Sarotti en Jumbo →</a></span>
         </div>
       </div>
     </li>
