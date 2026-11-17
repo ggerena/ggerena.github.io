@@ -207,6 +207,28 @@ h2.section {
 .store.adagio { background: #1f5c5a; }
 .store.sub { background: #111; }
 .store.mon { background: #4a4a4a; }
+.price {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: .5rem;
+  font-size: .8125rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: .125rem .5rem;
+}
+.price-big { font-weight: 700; color: var(--text) !important; }
+.notice {
+  margin: 1rem 0 0;
+  padding: .75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  max-width: 46ch;
+}
+.note { margin: .5rem 0 0; font-size: .8125rem; color: var(--muted); }
 .btns { display: grid; gap: .5rem; }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
@@ -223,7 +245,9 @@ footer {
   <header>
     <p class="kicker">🎂 Cumpleaños 2026</p>
     <h1>Ideas para regalarle a Gery</h1>
-    <p class="intro">¿No sabes qué regalarme? Aquí van algunas ideas. Cualquier cosa de la lista me hace feliz.</p>
+    <p class="intro">Estas son solo algunas ideas para orientarte. Si se te ocurre otra cosa, ¡bienvenida sea! Cualquier detalle me hace feliz.</p>
+    <p class="notice">☕ Mi cafetera es <strong>Nespresso Original</strong>, no Vertuo. Todas las cápsulas de la lista son de ese tipo.</p>
+    <p class="note">Precios aproximados, revisados en noviembre de 2026.</p>
   </header>
 
   <section class="featured" aria-labelledby="top">
@@ -233,7 +257,8 @@ footer {
     <div class="body">
       <span class="badge">⭐ Lo que más quiero</span>
       <h2 id="top">Cápsulas Lavazza Maestro Intenso</h2>
-      <p>Compatibles con Nespresso. Vienen en cajas de 10: mientras más cajas, mejor ☕ En el Jumbo suelen estar más baratas.</p>
+      <p>Compatibles con Nespresso. Vienen en cajas de 10: mientras más cajas, mejor ☕</p>
+      <p class="price-big">Aprox. $7.300 a $7.600 la caja · en el Jumbo suelen estar más baratas</p>
       <div class="btns">
         <a class="btn store jumbo" href="https://www.jumbo.cl/capsula-espresso-intenso-lavazza-57-g-1971950/p" target="_blank" rel="noopener">Jumbo</a>
         <a class="btn store ml" href="https://www.mercadolibre.cl/cafe-espresso-maestro-intenso-10-capsulas-lavazza/p/MLC37210050" target="_blank" rel="noopener">Mercado Libre</a>
@@ -249,6 +274,7 @@ footer {
         <div class="body">
           <h3>Lavazza sin cafeína</h3>
           <p>Espresso Maestro Dek, para Nespresso. Caja de 10. Ojo: no las de Lavazza Blue.</p>
+          <span class="price">Aprox. $7.600 en el Jumbo</span>
           <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/capsula-espresso-descaf-lavazza-58-g-1972044/p" target="_blank" rel="noopener">Jumbo</a><a class="store ml" href="https://www.mercadolibre.cl/cafe-en-capsulas-lavazza-espresso-descafeinado-10-un/up/MLCU5869224773" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -259,6 +285,7 @@ footer {
         <div class="body">
           <h3>Starbucks by Nespresso</h3>
           <p>Hechas para Nespresso. Caja de 10, por ejemplo Blonde Espresso Roast.</p>
+          <span class="price">Aprox. $6.700 (Jumbo: 2 por $10.690)</span>
           <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/caps-starbucks-nespresso-blonde-espr-53g-1957068/p" target="_blank" rel="noopener">Jumbo</a><a class="store ml" href="https://www.mercadolibre.cl/capsula-de-cafe-starbucks-by-nespresso-cafe-blonded-espresso-roasted-con-10-capsulas-de-53g/p/MLC17465270" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -269,6 +296,7 @@ footer {
         <div class="body">
           <h3>Puelo Coffee Roasters</h3>
           <p>Café de especialidad chileno para Nespresso. Caja de 10, por ejemplo Martín Pescador.</p>
+          <span class="price">Aprox. $8.000</span>
           <span class="links"><a class="store ml" href="https://www.mercadolibre.cl/capsulas-de-cafe-martin-pescador-puelo-coffee-roasters/p/MLC70152698" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -279,6 +307,7 @@ footer {
         <div class="body">
           <h3>Real Coffee</h3>
           <p>Cápsulas de aluminio para Nespresso. Caja de 10, por ejemplo Sumatra.</p>
+          <span class="price">Aprox. $4.400</span>
           <span class="links"><a class="store ml" href="https://www.mercadolibre.cl/capsulas-real-coffee-sumatra-compatible-con-nespresso/p/MLC36483584" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -289,6 +318,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento Nespresso</h3>
           <p>Edición Swarovski, línea Original.</p>
+          <span class="price">Aprox. $43.000 · agotado en Nespresso por ahora</span>
           <span class="links"><a class="store nes" href="https://www.nespresso.com/cl/es/order/capsules/original/calendario-de-adviento-swarovski-ol" target="_blank" rel="noopener">Nespresso</a></span>
         </div>
       </div>
@@ -299,6 +329,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento La Fête</h3>
           <p>Carrusel con 24 bombones, 250 g.</p>
+          <span class="price">Aprox. $28.800</span>
           <span class="links"><a class="store fete" href="https://cl.lafetechocolat.com/products/calendario-de-adviento-navidad-260-g" target="_blank" rel="noopener">La Fête</a></span>
         </div>
       </div>
@@ -309,6 +340,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento Entrelagos</h3>
           <p>Chocolates, bombones y grageas, 340 g.</p>
+          <span class="price">Aprox. $33.000</span>
           <span class="links"><a class="store entre" href="https://www.entrelagos.cl/pedir/FbDrhKPNNkBHFSthT/824-calendario-de-adviento-entrelagos-340-g" target="_blank" rel="noopener">Entrelagos</a></span>
         </div>
       </div>
@@ -319,6 +351,7 @@ footer {
         <div class="body">
           <h3>Caja de adviento Prieto</h3>
           <p>Un chocolate distinto por día. Se reserva; no despachan a regiones.</p>
+          <span class="price">Aprox. $23.900</span>
           <span class="links"><a class="store prieto" href="https://prietochocolates.cl/product/caja-de-adviento-bombones/" target="_blank" rel="noopener">Prieto</a></span>
         </div>
       </div>
@@ -329,6 +362,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento Varsovienne</h3>
           <p>Bombones, calugas, grageas y alfajores, 363 g.</p>
+          <span class="price">Aprox. $30.000</span>
           <span class="links"><a class="store vars" href="https://www.varsovienne.cl/default/calendario-de-adviento.html" target="_blank" rel="noopener">Varsovienne</a></span>
         </div>
       </div>
@@ -339,6 +373,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento Lindt</h3>
           <p>En lindt.cl el Magic 115 g está sin stock por ahora; en el Jumbo hay uno de 170 g.</p>
+          <span class="price">Aprox. $20.000 en el Jumbo</span>
           <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/calendario-advient-2096207/p" target="_blank" rel="noopener">Jumbo</a><a class="store lindt" href="https://www.lindt.cl/calendario-de-adviento-lindt-magic-115g-430793/p" target="_blank" rel="noopener">Lindt</a></span>
         </div>
       </div>
@@ -349,6 +384,7 @@ footer {
         <div class="body">
           <h3>Calendario de adviento de té</h3>
           <p>Adagio Teas: 24 bolsitas de 12 tés distintos, con taza.</p>
+          <span class="price">Aprox. $40.000</span>
           <span class="links"><a class="store adagio" href="https://adagio.cl/products/calendario-de-adviento" target="_blank" rel="noopener">Adagio</a></span>
         </div>
       </div>
@@ -359,6 +395,7 @@ footer {
         <div class="body">
           <h3>Limpiador facial</h3>
           <p>Bioderma Sébium Gel Moussant, 500 ml.</p>
+          <span class="price">Aprox. $24.000</span>
           <span class="links"><a class="store cv" href="https://www.cruzverde.cl/sebium-gel-moussant-gel-limpiador-suave-para-pieles-grasas-mixtas-o-con-tendencia-acneica-500-ml/393020.html" target="_blank" rel="noopener">Cruz Verde</a><a class="store ml" href="https://www.mercadolibre.cl/gel-moussant-bioderma-sebium-pieles-grasas-acne-500-ml/p/MLC19766658" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -369,6 +406,7 @@ footer {
         <div class="body">
           <h3>Bloqueador solar</h3>
           <p>Uriage Bariésun Stick invisible SPF 50, 18 g.</p>
+          <span class="price">Aprox. $19.000 a $20.200</span>
           <span class="links"><a class="store cv" href="https://www.cruzverde.cl/protector-solar-stick-invisible-spf50-bariesun-18g/575767.html" target="_blank" rel="noopener">Cruz Verde</a><a class="store sb" href="https://salcobrand.cl/products/uriage-bariesun-spf50-invisible-stick-18g" target="_blank" rel="noopener">Salcobrand</a><a class="store ml" href="https://www.mercadolibre.cl/uriage-bariesun-stick-solar-invisible-spf-50-en-barra-18gr-producto-viral-glow-on-the-go/p/MLC47354093" target="_blank" rel="noopener">Mercado Libre</a></span>
         </div>
       </div>
@@ -379,6 +417,7 @@ footer {
         <div class="body">
           <h3>Polera Completo Italiano</h3>
           <p>Suburbano, colección Chilean Bauhaus.</p>
+          <span class="price">Aprox. $22.000</span>
           <span class="tag">Talla XXL (2XL), si no XL</span>
           <span class="links"><a class="store sub" href="https://suburbano.cl/products/polera-completo-bauhaus" target="_blank" rel="noopener">Suburbano</a></span>
         </div>
@@ -391,6 +430,16 @@ footer {
           <h3>Suéter</h3>
           <p>Idealmente negro. Me gustan los de H&amp;M.</p>
           <span class="tag">Talla XXL</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item">
+        <div class="photo emoji" aria-hidden="true">🎁</div>
+        <div class="body">
+          <h3>Gift card de H&amp;M</h3>
+          <p>Para que yo elija la ropa. Pregunta en caja de cualquier tienda H&amp;M.</p>
+          <span class="price">El monto que quieras</span>
         </div>
       </div>
     </li>
@@ -410,6 +459,7 @@ footer {
         <div class="body">
           <h3>Bóxers</h3>
           <p>De buena marca, como estos de referencia (puede ser otra marca).</p>
+          <span class="price">Aprox. $15.000 el pack de 2</span>
           <span class="tag">Talla XL</span>
           <span class="links"><a class="store mon" href="https://monarch.cl/products/tais-2-unidades-boxer-medio-liso-negro-happy-boolls" target="_blank" rel="noopener">Ver en Monarch</a></span>
         </div>
@@ -421,6 +471,7 @@ footer {
         <div class="body">
           <h3>Chocolate 85 %</h3>
           <p>Chocolate amargo, 85 % cacao. Por ejemplo, Lindt Excellence o Sarotti.</p>
+          <span class="price">Aprox. $4.900 a $7.600</span>
           <span class="links"><a class="store jumbo" href="https://www.jumbo.cl/chocolate-extra-fino-lindt-barra-100-g-dark-amargo-85-cacao/p" target="_blank" rel="noopener">Jumbo: Lindt</a><a class="store jumbo" href="https://www.jumbo.cl/choco-sarotti-amargo-85-10un-100gr-2002817/p" target="_blank" rel="noopener">Jumbo: Sarotti</a></span>
         </div>
       </div>
