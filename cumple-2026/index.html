@@ -291,6 +291,23 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { .item, .store { transition: none; } }
 
 
+@media (min-width: 1024px) {
+  html { font-size: clamp(16px, calc(8px + .55vw), 24px); }
+  main { max-width: 74rem; padding-left: 2rem; padding-right: 2rem; }
+  .intro { max-width: 60ch; }
+  .notice { max-width: 60ch; }
+  .featured { grid-template-columns: 20rem minmax(0, 1fr); max-width: 56rem; }
+  .featured .body { padding: 1.75rem; }
+  .featured h2 { font-size: 1.875rem; }
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+  .item h3 { font-size: 1.0625rem; }
+  .item p { font-size: .9375rem; }
+}
+@media (min-width: 1440px) {
+  main { max-width: 88rem; }
+  .grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
 footer {
   margin-top: 2.5rem;
   text-align: center;
