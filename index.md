@@ -40,9 +40,7 @@ Technical Lead based in Santiago, Chile, with 15+ years building software: healt
 
 ## Contact
 
-Reach me through [LinkedIn](https://www.linkedin.com/in/ggerena/).
-
-## Socials
+The best way to reach me is [LinkedIn](https://www.linkedin.com/in/ggerena/).
 
 - [LinkedIn](https://www.linkedin.com/in/ggerena/)
 - [GitHub](https://github.com/ggerena)
