@@ -1,5 +1,7 @@
 # Gery Gerena
 
+![Gery Gerena](/assets/images/avatar/gery-gerena.jpg)
+
 Human | AI-Powered Technical Lead
 
 Technical Lead based in Santiago, Chile, with 15+ years building software: healthcare integrations, high-traffic platforms and AI-assisted development.

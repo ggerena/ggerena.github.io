@@ -46,6 +46,13 @@ h1.lc, h2.lc {
   font-weight: inherit;
   line-height: inherit;
 }
+.avatar {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+  vertical-align: top;
+}
 .lc.empty {
   height: 1.8em;
 }
