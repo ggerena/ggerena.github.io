@@ -2,11 +2,6 @@
 
 > Technical Lead based in Santiago, Chile, with 15+ years building software: healthcare integrations, high-traffic platforms and AI-assisted development. Also known as ggerena.
 
-- Role: Technical Lead (current: Gear3)
-- Location: Santiago, Chile
-- Languages: Spanish (native), English (C2)
-- Contact: LinkedIn (https://www.linkedin.com/in/ggerena/)
-
 ## Skills
 
 - Technical leadership, code review, Scrum and Kanban
@@ -41,7 +36,7 @@
 
 ## Contact
 
-Reach me through LinkedIn.
+Reach me through [LinkedIn](https://www.linkedin.com/in/ggerena/).
 
 ## Profiles
 

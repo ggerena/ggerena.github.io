@@ -40,6 +40,12 @@ main {
   flex: 1;
   min-width: 0;
 }
+h1.lc, h2.lc {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
 .lc.empty {
   height: 1.8em;
 }
